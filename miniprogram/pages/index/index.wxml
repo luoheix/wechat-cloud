@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="iconfont iconxiong"></text>
+    <text class="title">黑熊工具</text>
+  </view>
+  <view class="navigator" wx:for="{{navigatorList}}" wx:key="title">
+    <view class="navigator-item">
+      <navigator url="{{item.url}}">{{item.title}}</navigator>
+    </view>
+  </view>
+</view>

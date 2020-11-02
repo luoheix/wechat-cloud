@@ -1,0 +1,7 @@
+/**app.wxss**/
+@import './style/global.wxss';
+@import './style/iconfont.wxss';
+
+page {
+  background-color: #F6F6F6;
+}

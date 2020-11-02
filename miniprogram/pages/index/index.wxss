@@ -1,0 +1,28 @@
+/**index.wxss**/
+.header {
+  padding: 40rpx 0;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #40A9FF;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.header .iconfont {
+  font-size: 60rpx;
+}
+.header .title {
+  margin-top: 40rpx;
+}
+.navigator-item {
+  margin-top: 40rpx;
+  line-height: 100rpx;
+  background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.navigator-item navigator {
+  padding-left: 40rpx;
+}

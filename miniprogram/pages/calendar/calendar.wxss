@@ -1,0 +1,16 @@
+/**index.wxss**/
+.header {
+  padding: 40rpx 0;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #40A9FF;
+}
+.header .iconfont {
+  font-size: 60rpx;
+}
+.header .title {
+  margin-top: 40rpx;
+}
