@@ -1,0 +1,8 @@
+var foo = undefined;
+var bar = function (d) {
+  return d;
+};
+module.exports = {
+  foo: foo,
+  bar: bar,
+};

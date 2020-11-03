@@ -25,4 +25,10 @@
 }
 .navigator-item navigator {
   padding-left: 40rpx;
+  font-size: 34rpx;
+  color: #007aff;
+}
+.navigator-item .iconfont {
+  margin-right: 10rpx;
+  font-size: 30rpx;
 }

@@ -1,16 +1,71 @@
-/**index.wxss**/
-.header {
-  padding: 40rpx 0;
-  height: 200rpx;
+/**calendar.wxss**/
+.calendar {
+  padding: 20rpx 20rpx;
+}
+
+.operat {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.pre,
+.next {
+  display: flex;
   align-items: center;
-  color: #40A9FF;
 }
-.header .iconfont {
-  font-size: 60rpx;
+
+.pre>button:last-child,
+.next>button:last-child {
+  margin-left: 16rpx;
 }
-.header .title {
-  margin-top: 40rpx;
+
+.dateTitle {
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.table {
+  background: #fff;
+}
+
+.header {
+  display: flex;
+}
+
+.header-item {
+  flex: 1;
+  text-align: center;
+  font-size: 34rpx;
+  line-height: 60rpx;
+  background-color: #fafafa;
+  border: 1px solid #999999;
+}
+
+.header-item:not(:last-child) {
+  border-right: none;
+}
+
+.body-row {
+  display: flex;
+}
+
+.body-col {
+  flex: 1;
+  font-size: 34rpx;
+  height: 90rpx;
+  color: rgba(0, 0, 0, .25);
+  border: 1px solid skyblue;
+  border-top: none;
+}
+
+.body-col:not(:last-child) {
+  border-right: none;
+}
+
+.body-number {
+  margin: 6rpx;
+  width: 60rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60rpx;
 }

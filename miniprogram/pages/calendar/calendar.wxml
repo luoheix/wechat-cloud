@@ -1,4 +1,45 @@
 <!--calendar.wxml-->
-<view>
-  日历管理页面
+<wxs src="./calendar.wxs" module="tools" />
+<view class="calendar">
+  <view class="operat">
+    <view class="pre">
+      <button type="primary" size="mini" bindtap="changeDate" data-value="preYear">
+        上一年
+      </button>
+      <button type="primary" size="mini" bindtap="changeDate" data-value="preMonth">
+        上一月
+      </button>
+    </view>
+    <view class="next">
+      <button type="primary" size="mini" bindtap="changeDate" data-value="nextMonth">
+        下一月
+      </button>
+      <button type="primary" size="mini" bindtap="changeDate" data-value="nextYear">
+        下一年
+      </button>
+    </view>
+  </view>
+  <view class="dateTitle">{{dateTitle}}</view>
+  <view class="table">
+    <view class="header">
+      <view class="header-item">一</view>
+      <view class="header-item">二</view>
+      <view class="header-item">三</view>
+      <view class="header-item">四</view>
+      <view class="header-item">五</view>
+      <view class="header-item">六</view>
+      <view class="header-item">日</view>
+    </view>
+    <view class="body">
+      <view class="body-row" wx:for="{{calendarList}}" wx:key="key">
+        <view class="body-col" wx:for="{{item.children}}" wx:key="weekNumber" wx:for-item="it"
+          style="{{it.isTargetMonth ? 'color:rgba(0,0,0,.85);background:#fafafa' : ''}}">
+          <view class="body-number"
+            style="{{it.isCurDay ? 'color:#fff;background:rgb(0, 150, 250);font-weight:bold' : ''}}">
+            {{it.dayNumber}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

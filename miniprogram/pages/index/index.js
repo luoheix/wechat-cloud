@@ -6,12 +6,15 @@ Page({
     navigatorList: [{
       title: '日历管理',
       url: '../calendar/calendar',
+      icon: 'icongongzuoriliguanli',
     }, {
       title: '滚动加载',
       url: '../calendar/calendar',
+      icon: 'icongengduo',
     }, {
       title: '添加水印',
       url: '../calendar/calendar',
+      icon: 'iconshuiyin',
     }]
   },
 
