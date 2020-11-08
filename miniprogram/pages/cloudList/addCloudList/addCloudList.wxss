@@ -1,0 +1,36 @@
+/* pages/addCloudList/addCloudList.wxss */
+.addForm {
+  padding: 40rpx 20rpx;
+  display: block;
+}
+
+.addForm textarea, .addForm input {
+  width: 100%;
+  padding: 25rpx 0;
+}
+
+.picker{
+  padding: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.input-textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+}
+
+.pickerHoder, .iconfont {
+  color: #888;
+}
+
+.form-item {
+}
+
+.form-btn {
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}

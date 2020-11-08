@@ -1,0 +1,30 @@
+<!--scorllLoad.wxml-->
+
+<!-- 列表模板 -->
+<template name="listItem">
+  <view class="list-item" wx:for="{{listItemData}}" wx:key="key">
+    <view class="list-item-left">{{index + 1}}</view>
+    <view class="list-item-right">
+      <view class="list-item-right-top">
+        <text>{{item.name}}</text>
+        <text>{{item.age}}</text>
+        <text>{{item.createTime}}</text>
+      </view>
+      <view style="margin-top:10rpx">{{item.address}}</view>
+    </view>
+  </view>
+</template>
+
+<view class="scrollLoad">
+  <view class="list" wx:if="{{listData.records && listData.records.length}}">
+    <template is="listItem" data="{{listItemData: listData.records}}" />
+  </view>
+  <view class="footer" style="padding-bottom:40rpx;text-align:center">
+    <view wx:if="{{!listData.records || !listData.records.length}}">暂无数据</view>
+    <view wx:elif="{{loading}}">加载中</view>
+    <view wx:elif="{{listData.current < listData.pages}}">滚到底部加载下一页</view>
+    <view wx:elif="{{listData.current >= listData.pages}}">
+      <button type="primary" bindtap="onReload">已加载全部</button>
+    </view>
+  </view>
+</view>

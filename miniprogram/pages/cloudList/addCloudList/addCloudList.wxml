@@ -1,0 +1,96 @@
+<!--pages/addCloudList/addCloudList.wxml-->
+<!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+  <view class="picker">
+    当前选择: {{date}}
+  </view>
+</picker> -->
+<!-- address age sex like isStudent searchTime name -->
+<form class="addForm" bindsubmit="formSubmit" bindreset="formReset">
+  <view class="form-item">
+    <view class="form-item-title">姓名</view>
+    <view class="input-textarea-wrp">
+      <input class="weui-input" name="name" maxlength="10" auto-focus placeholder="请输入姓名" />
+    </view>
+  </view>
+
+  <view class="form-item">
+    <view class="form-item-title">性别</view>
+    <radio-group name="sex">
+      <label wx:for="{{[{value: '0', title: '女'},{value: '1', title: '男'}]}}" wx:key="value">
+        <radio value="{{item.value}}" />
+        <text>{{item.title}}</text>
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="form-item">
+    <view class="form-item-title">年龄</view>
+    <view class="input-textarea-wrp">
+      <input class="weui-input" name="age" maxlength="10" type="number" placeholder="请输入年龄" />
+    </view>
+  </view>
+
+  <view class="form-item">
+    <label>
+      <view class="form-item-title">是否是学生</view>
+      <switch name="isStudent" type="checkbox" />
+    </label>
+  </view>
+
+  <view class="form-item">
+    <view class="form-item-title">区域选择</view>
+    <picker name="address" mode="region" bindchange="changeAddress">
+      <view class="picker">
+        <view wx:if="{{address.length}}" class="pickerValue">{{address[0]}}，{{address[1]}}，{{address[2]}}</view>
+        <view wx:else class="pickerHoder">请选择区域</view>
+        <text class="iconfont iconarrow-left" />
+      </view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="form-item-title">兴趣爱好</view>
+    <checkbox-group name="like">
+      <view wx:for="{{likeList}}" wx:key="type">
+        <view>{{item.type}}</view>
+        <label wx:for="{{item.children}}" wx:key="code" wx:for-item="it">
+          <checkbox value="{{item.type + ',' + it.title + ',' + it.code}}" />
+          <text>{{it.title}}</text>
+        </label>
+      </view>
+    </checkbox-group>
+    <view>
+      <view>其他</view>
+      <view class="input-textarea-wrp">
+        <textarea name="otherLike" maxlength="10" auto-height placeholder="若有其他爱好请在此输入"></textarea>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-item">
+    <view class="form-item-title">日期选择</view>
+    <picker mode="date" name="date" value="{{date}}" bindchange="changeDate">
+      <view class="picker">
+        <view wx:if="{{date}}" class="pickerValue">{{date}}</view>
+        <view wx:else class="pickerHoder">请选择日期</view>
+        <text class="iconfont iconarrow-left" />
+      </view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="form-item-title">时间选择</view>
+    <picker mode="time" name="time" value="{{time}}" start="09:01" end="21:01" bindchange="changeTime">
+      <view class="picker">
+        <view wx:if="{{time}}" class="pickerValue">{{time}}</view>
+        <view wx:else class="pickerHoder">请选择时间</view>
+        <text class="iconfont iconarrow-left" />
+      </view>
+    </picker>
+  </view>
+
+  <view class="form-btn">
+    <button type="primary" plain="true" form-type="reset">重置</button>
+    <button style="margin-left:20rpx" type="primary" form-type="submit">提交</button>
+  </view>
+</form>

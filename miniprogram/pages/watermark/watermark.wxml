@@ -1,0 +1,4 @@
+<!--pages/watermark/watermark.wxml-->
+<view
+  style="{{'width:100%;height:100%;position:fixed;top:0;left:0;z-index: 9999;pointer-events:none;opacity:0.2;' + watermarkBck}}" />
+<button type="primary" bindtap="addWatermark" style="margin-top:40rpx">{{watermarkBck ? '点击清除水印' : '点击添加水印'}}</button>

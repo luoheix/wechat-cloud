@@ -9,12 +9,16 @@ Page({
       icon: 'icongongzuoriliguanli',
     }, {
       title: '滚动加载',
-      url: '../calendar/calendar',
+      url: '../scrollLoad/scrollLoad',
       icon: 'icongengduo',
     }, {
       title: '添加水印',
-      url: '../calendar/calendar',
+      url: '../watermark/watermark',
       icon: 'iconshuiyin',
+    }, {
+      title: '云开发列表',
+      url: '../cloudList/cloudList',
+      icon: 'iconyunkaifalogo',
     }]
   },
 

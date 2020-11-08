@@ -1,0 +1,23 @@
+<!-- 列表模板 -->
+<template name="listItem">
+  <view class="list-item" wx:for="{{listItemData}}" wx:key="_id">
+    <view class="list-item-left">{{index + 1}}</view>
+    <view class="list-item-right">
+      <view class="list-item-right-top">
+        <text>{{item.name}}</text>
+        <text>{{item.age}}</text>
+      </view>
+      <view>{{item.address}}</view>
+      <view style="margin-top:10rpx">
+        <text>{{item.searchTime}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<view class="header">
+  <button type="primary" bindtap="jumpAdd">新增数据</button>
+</view>
+<view class="list">
+  <template is="listItem" data="{{listItemData: testList}}" />
+</view>

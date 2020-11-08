@@ -151,17 +151,13 @@ Page({
   },
 
   onLoad: function () {
-    // this.setData({
-    //   calendarList: getInitList(this.data.targetDate)
-    // });
-  },
-  onShow: function () {
     const now = new Date();
-    console.log(getInitList(now), 'test')
     this.setData({
       targetDate: now,
       dateTitle: getYearMonth(now),
       calendarList: getInitList(now),
     });
+  },
+  onShow: function () {
   }
 })
