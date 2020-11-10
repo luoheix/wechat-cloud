@@ -16,7 +16,10 @@
 
 .list-item-left {
   padding-right: 30rpx;
-  font-size: 50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
@@ -30,10 +33,30 @@
   background-color: #bbbbbb;
 }
 
-.list-item-right-top > text:not(:first-child) {
-  margin-left: 20rpx;
+.list-item-left > image {
+  display: inline-block;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.list-item-middle-top > text:not(:first-child) {
+  margin-left: 40rpx;
+}
+
+.list-item-middle {
+  margin-left: 30rpx;
+  flex: 1;
+}
+
+.list-item-middle > view:not(:first-child) {
+  margin-top: 10rpx;
 }
 
 .list-item-right {
-  margin-left: 30rpx;
+  padding: 30rpx;
+}
+
+.list-item-right .iconfont {
+  font-size: 50rpx;
+  color: #07c160;
 }

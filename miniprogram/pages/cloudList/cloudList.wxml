@@ -1,16 +1,24 @@
 <!-- 列表模板 -->
 <template name="listItem">
-  <view class="list-item" wx:for="{{listItemData}}" wx:key="_id">
-    <view class="list-item-left">{{index + 1}}</view>
-    <view class="list-item-right">
-      <view class="list-item-right-top">
+  <view class="list-item" wx:for="{{testList}}" wx:key="_id">
+    <view class="list-item-left">
+      <text wx:if="{{item.isStudent}}" class="iconfont iconxuesheng1" />
+      <!-- <text wx:else class="iconfont iconlingdai" /> -->
+      <image src="{{item.img || noImg}}" id="{{index}}" data-value="{{item.img || noImg}}" binderror="onImgErr" bindtap="previewImage" />
+    </view>
+    <view class="list-item-middle">
+      <view class="list-item-middle-top">
         <text>{{item.name}}</text>
+        <text>{{['女', '男'][item.sex]}}</text>
         <text>{{item.age}}</text>
       </view>
       <view>{{item.address}}</view>
-      <view style="margin-top:10rpx">
+      <view>
         <text>{{item.searchTime}}</text>
       </view>
+    </view>
+    <view class="list-item-right" bindtap="onEdit" id="{{item._id}}">
+      <text class="iconfont iconbianji" />
     </view>
   </view>
 </template>
@@ -19,5 +27,5 @@
   <button type="primary" bindtap="jumpAdd">新增数据</button>
 </view>
 <view class="list">
-  <template is="listItem" data="{{listItemData: testList}}" />
+  <template is="listItem" data="{{ testList, noImg }}" />
 </view>

@@ -1,96 +1,115 @@
 <!--pages/addCloudList/addCloudList.wxml-->
-<!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-  <view class="picker">
-    当前选择: {{date}}
-  </view>
-</picker> -->
-<!-- address age sex like isStudent searchTime name -->
 <form class="addForm" bindsubmit="formSubmit" bindreset="formReset">
-  <view class="form-item">
-    <view class="form-item-title">姓名</view>
-    <view class="input-textarea-wrp">
-      <input class="weui-input" name="name" maxlength="10" auto-focus placeholder="请输入姓名" />
+  <view class="form-title">头像上传</view>
+  <view class="upload-img" bindtap="chooseImg">
+    <image wx:if="{{imgPath || testDetail.img}}" src="{{imgPath || testDetail.img}}" />
+    <view wx:else>
+      <text class="iconfont iconshangchuantouxiang" />
     </view>
   </view>
-
+  <view class="form-title">基本信息</view>
   <view class="form-item">
-    <view class="form-item-title">性别</view>
+    <view class="form-item-title required">姓名</view>
+    <view class="form-item-content">
+      <input placeholder-class="phcolor" class="weui-input" name="name" maxlength="14" auto-focus placeholder="请输入姓名"
+        value="{{testDetail.name}}" />
+    </view>
+  </view>
+  <view class="form-item-divider" />
+
+  <view class="form-item" style="height:92.78rpx">
+    <view class="form-item-title required">性别</view>
     <radio-group name="sex">
-      <label wx:for="{{[{value: '0', title: '女'},{value: '1', title: '男'}]}}" wx:key="value">
-        <radio value="{{item.value}}" />
+      <label class="label-layout" wx:for="{{[{value: '0', title: '女'},{value: '1', title: '男'}]}}" wx:key="value">
+        <radio value="{{item.value}}" checked="{{item.value === testDetail.sex}}" />
         <text>{{item.title}}</text>
       </label>
     </radio-group>
   </view>
+  <view class="form-item-divider" />
 
   <view class="form-item">
-    <view class="form-item-title">年龄</view>
-    <view class="input-textarea-wrp">
-      <input class="weui-input" name="age" maxlength="10" type="number" placeholder="请输入年龄" />
+    <view class="form-item-title required">年龄</view>
+    <view class="form-item-content">
+      <input placeholder-class="phcolor" class="weui-input" name="age" maxlength="14" type="number" placeholder="请输入年龄"
+        value="{{testDetail.age}}" />
     </view>
   </view>
+  <view class="form-item-divider" />
 
-  <view class="form-item">
-    <label>
-      <view class="form-item-title">是否是学生</view>
-      <switch name="isStudent" type="checkbox" />
-    </label>
-  </view>
+  <label>
+    <view class="form-item" style="height:92.78rpx">
+      <view class="form-item-title required">是否学生</view>
+      <switch name="isStudent" type="checkbox" checked="{{testDetail.isStudent}}" />
+      <text style="color:#c8c9cc">（默认为否）</text>
+    </view>
+  </label>
 
-  <view class="form-item">
-    <view class="form-item-title">区域选择</view>
-    <picker name="address" mode="region" bindchange="changeAddress">
-      <view class="picker">
-        <view wx:if="{{address.length}}" class="pickerValue">{{address[0]}}，{{address[1]}}，{{address[2]}}</view>
-        <view wx:else class="pickerHoder">请选择区域</view>
-        <text class="iconfont iconarrow-left" />
-      </view>
-    </picker>
-  </view>
-
-  <view class="form-item">
-    <view class="form-item-title">兴趣爱好</view>
-    <checkbox-group name="like">
-      <view wx:for="{{likeList}}" wx:key="type">
-        <view>{{item.type}}</view>
-        <label wx:for="{{item.children}}" wx:key="code" wx:for-item="it">
-          <checkbox value="{{item.type + ',' + it.title + ',' + it.code}}" />
+  <view class="form-title">兴趣爱好</view>
+  <checkbox-group name="like">
+    <view class="checkbox-item" wx:for="{{likeList}}" wx:key="type">
+      <view class="checkbox-title">{{item.type}}</view>
+      <view class="checkbox-content">
+        <label class="label-layout" wx:for="{{item.children}}" wx:key="code" wx:for-item="it">
+          <checkbox value="{{item.type + ',' + it.title + ',' + it.code}}" checked="{{it.checked}}" />
           <text>{{it.title}}</text>
         </label>
       </view>
-    </checkbox-group>
-    <view>
-      <view>其他</view>
-      <view class="input-textarea-wrp">
-        <textarea name="otherLike" maxlength="10" auto-height placeholder="若有其他爱好请在此输入"></textarea>
-      </view>
+    </view>
+  </checkbox-group>
+  <view class="form-item">
+    <view class="form-item-title required">其他爱好</view>
+    <view class="form-item-content">
+      <textarea placeholder-class="phcolor" name="otherLike" maxlength="14" auto-height placeholder="若有其他爱好请在此输入"
+        value="{{testDetail.otherLike}}"></textarea>
     </view>
   </view>
 
+  <view class="form-title">区域和时间</view>
   <view class="form-item">
-    <view class="form-item-title">日期选择</view>
-    <picker mode="date" name="date" value="{{date}}" bindchange="changeDate">
-      <view class="picker">
-        <view wx:if="{{date}}" class="pickerValue">{{date}}</view>
-        <view wx:else class="pickerHoder">请选择日期</view>
-        <text class="iconfont iconarrow-left" />
-      </view>
-    </picker>
+    <view class="form-item-title required">区域选择</view>
+    <view class="form-item-content">
+      <picker header-text="区域选择" name="address" mode="region" bindchange="changeAddress">
+        <view class="picker">
+          <view wx:if="{{testDetail.address.length}}" class="pickerValue">
+            {{testDetail.address[0]}}，{{testDetail.address[1]}}，{{testDetail.address[2]}}</view>
+          <view wx:else class="pickerHoder">请选择区域</view>
+          <text class="iconfont iconarrow-left" />
+        </view>
+      </picker>
+    </view>
   </view>
+  <view class="form-item-divider" />
 
   <view class="form-item">
-    <view class="form-item-title">时间选择</view>
-    <picker mode="time" name="time" value="{{time}}" start="09:01" end="21:01" bindchange="changeTime">
-      <view class="picker">
-        <view wx:if="{{time}}" class="pickerValue">{{time}}</view>
-        <view wx:else class="pickerHoder">请选择时间</view>
-        <text class="iconfont iconarrow-left" />
-      </view>
-    </picker>
+    <view class="form-item-title required">日期选择</view>
+    <view class="form-item-content">
+      <picker header-text="日期选择" mode="date" name="date" bindchange="changeDate">
+        <view class="picker">
+          <view wx:if="{{testDetail.date}}" class="pickerValue">{{testDetail.date}}</view>
+          <view wx:else class="pickerHoder">请选择日期</view>
+          <text class="iconfont iconarrow-left" />
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="form-item-divider" />
+
+  <view class="form-item">
+    <view class="form-item-title required">时间选择</view>
+    <view class="form-item-content">
+      <picker header-text="时间选择" mode="time" name="time" bindchange="changeTime">
+        <view class="picker">
+          <view wx:if="{{testDetail.time}}" class="pickerValue">{{testDetail.time}}</view>
+          <view wx:else class="pickerHoder">请选择时间</view>
+          <text class="iconfont iconarrow-left" />
+        </view>
+      </picker>
+    </view>
   </view>
 
   <view class="form-btn">
-    <button type="primary" plain="true" form-type="reset">重置</button>
+    <button type="primary" plain="true" form-type="reset">取消</button>
     <button style="margin-left:20rpx" type="primary" form-type="submit">提交</button>
   </view>
 </form>
