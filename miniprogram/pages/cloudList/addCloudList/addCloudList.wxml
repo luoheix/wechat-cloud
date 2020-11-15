@@ -2,7 +2,10 @@
 <form class="addForm" bindsubmit="formSubmit" bindreset="formReset">
   <view class="form-title">头像上传</view>
   <view class="upload-img" bindtap="chooseImg">
-    <image wx:if="{{imgPath || testDetail.img}}" src="{{imgPath || testDetail.img}}" />
+    <block wx:if="{{imgPath || testDetail.imgId}}">
+      <image src="{{imgPath || testDetail.imgId}}" binderror="onImgErr" />
+      <text class="upload-hoder">（点击重新上传）</text>
+    </block>
     <view wx:else>
       <text class="iconfont iconshangchuantouxiang" />
     </view>
@@ -69,11 +72,11 @@
   <view class="form-item">
     <view class="form-item-title required">区域选择</view>
     <view class="form-item-content">
-      <picker header-text="区域选择" name="address" mode="region" bindchange="changeAddress">
+      <picker header-text="区域选择" name="address" mode="region" bindchange="changeAddress" value="{{testDetail.address}}">
         <view class="picker">
           <view wx:if="{{testDetail.address.length}}" class="pickerValue">
             {{testDetail.address[0]}}，{{testDetail.address[1]}}，{{testDetail.address[2]}}</view>
-          <view wx:else class="pickerHoder">请选择区域</view>
+          <view wx:else class="picker-hoder">请选择区域</view>
           <text class="iconfont iconarrow-left" />
         </view>
       </picker>
@@ -84,10 +87,10 @@
   <view class="form-item">
     <view class="form-item-title required">日期选择</view>
     <view class="form-item-content">
-      <picker header-text="日期选择" mode="date" name="date" bindchange="changeDate">
+      <picker header-text="日期选择" mode="date" name="date" bindchange="changeDate" value="{{testDetail.date}}">
         <view class="picker">
           <view wx:if="{{testDetail.date}}" class="pickerValue">{{testDetail.date}}</view>
-          <view wx:else class="pickerHoder">请选择日期</view>
+          <view wx:else class="picker-hoder">请选择日期</view>
           <text class="iconfont iconarrow-left" />
         </view>
       </picker>
@@ -98,10 +101,10 @@
   <view class="form-item">
     <view class="form-item-title required">时间选择</view>
     <view class="form-item-content">
-      <picker header-text="时间选择" mode="time" name="time" bindchange="changeTime">
+      <picker header-text="时间选择" mode="time" name="time" bindchange="changeTime" value="{{testDetail.time}}">
         <view class="picker">
           <view wx:if="{{testDetail.time}}" class="pickerValue">{{testDetail.time}}</view>
-          <view wx:else class="pickerHoder">请选择时间</view>
+          <view wx:else class="picker-hoder">请选择时间</view>
           <text class="iconfont iconarrow-left" />
         </view>
       </picker>

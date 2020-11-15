@@ -1,12 +1,13 @@
 // pages/addCloudList/addCloudList.js
 const app = getApp();
-const { myCloudPath } = app.globalData;
+const { imgErr } = app.globalData;
 import { generateUUID } from '../../../components/utils/index.js';
 
 Page({
   data: {
+    id: '',
     testDetail: {
-      img: '',
+      imgId: '',
       address: [],
       date: '',
       time: '',
@@ -53,10 +54,20 @@ Page({
   },
 
   onLoad: function (options) {
-    options.id && this.getTestDetail(options.id);
+    if (options.id) {
+      this.getTestDetail(options.id);
+      this.setData({ id: options.id });
+    }
   },
 
   onReady: function () {
+  },
+
+  // 图片加载失败处理
+  onImgErr: function () {
+    this.setData({
+      ['testDetail.imgId']: imgErr,
+    });
   },
 
   // 获取详情
@@ -67,7 +78,7 @@ Page({
     db.collection('testList').doc(id).get({
       success: res => {
         wx.hideLoading();
-        this.handleDetail(res?.data?.[0] || {});
+        res?.data && this.handleDetail(res.data);
         console.log('[数据库] [查询记录] 成功: ', res);
       },
       fail: err => {
@@ -83,25 +94,24 @@ Page({
   // 处理详情
   handleDetail: function (detail) {
     const { likeList } = this.data;
-    const { like: oldLike, searchTime, ...otherDetail } = detail;
-    const [date, time] = searchTime.split(' ');
-    let otherLike = '';
-    let newLikeList = [];
-    oldLike.forEach(item => {
-      likeList.map(it => ({
+    const { like: detailLike, searchTime, ...otherDetail } = detail;
+    const [date, time] = (searchTime || '').split(' ');
+    const otherLike = (detailLike || []).find(item => item.code === 'other')?.title || '';
+    const newLikeList = likeList.map(item => ({
+      ...item,
+      children: item.children.map(it => ({
         ...it,
-        children: it.children.map(i => ({
-          ...i,
-          checked: it.type === item.type && i.code === item.code,
-        })),
-      }));
-    });
+        checked: (detailLike || []).some(i => i.code === it.code),
+      })),
+    }));
     this.setData({
-      ...otherDetail,
-      date,
-      time,
-      like,
-      otherLike,
+      testDetail: {
+        ...otherDetail,
+        date,
+        time: time.slice(0, 5),
+        otherLike,
+      },
+      likeList: newLikeList,
     });
   },
 
@@ -144,10 +154,10 @@ Page({
   // 新增提交
   formSubmit: async function (e) {
     const { name, age, sex, isStudent, address, like, otherLike, date, time } = e.detail.value;
-    const { testDetail, imgPath } = this.data;
+    const { id, testDetail, imgPath } = this.data;
 
     // 必填项校验
-    if ((!testDetail.img && !imgPath) || !address.length || !age || !sex || !date || !time || (!like.length && !otherLike)) {
+    if ((!testDetail.imgId && !imgPath) || !address.length || !age || !sex || !date || !time || (!like.length && !otherLike)) {
       wx.showToast({
         icon: 'none',
         title: '必填项不能为空！',
@@ -156,7 +166,14 @@ Page({
     }
 
     // 上传头像
-    const img = imgPath ? await this.onCloudImg(imgPath) : testDetail.img;
+    const imgId = imgPath ? await this.onCloudImg(imgPath) : testDetail.imgId;
+    if (!imgId) {
+      wx.showToast({
+        icon: 'none',
+        title: '头像上传失败！'
+      });
+      return;
+    }
 
     // 处理爱好
     const likeParam = like.map(item => {
@@ -176,7 +193,7 @@ Page({
       })
     }
     const params = {
-      img,
+      imgId,
       name,
       age: Number(age),
       sex,
@@ -186,29 +203,69 @@ Page({
       searchTime: `${date} ${time}:00`,
     };
     console.log(params, 'submit');
-    this.addCloudList(params);
+    id ? this.editCloudList(id, params) : this.addCloudList(params);
   },
 
   // 云开发存储文件
   onCloudImg: function (filePath) {
     return new Promise((resolve) => {
-      const cloudPath = `${generateUUID()}.png`; // 文件名
       wx.cloud.uploadFile({
-        cloudPath,
+        cloudPath: `${generateUUID()}.png`, // 文件名
         filePath, // 小程序临时文件路径
         success: res => {
           // 云文件地址
-          resolve(`${myCloudPath}/${cloudPath}`);
+          console.log('[存储] [头像文件] 成功 ')
+          resolve(res.fileID);
+        },
+        fail: err => {
+          console.error('[存储] [头像文件] 失败：', err);
+          resolve(false);
+        }
+      });
+    });
+  },
+
+  // 编辑云数据库
+  editCloudList: async function (id, data) {
+    const { imgId } = this.data.testDetail;
+    // 删除原头像
+    const deleteImgSuccess = imgId ? await app.onDeleteImg(imgId) : true;
+    if (deleteImgSuccess) {
+      const db = wx.cloud.database();
+      wx.showLoading({
+        title: 'loading...',
+        duration: 30000
+      });
+      db.collection('testList').doc(id).update({
+        // data 传入需要局部更新的数据
+        data,
+        success: function (res) {
+          wx.showToast({
+            icon: 'success',
+            title: '编辑成功',
+            duration: 1000,
+            success: () => {
+              setTimeout(() => {
+                wx.navigateBack();
+              }, 1000);
+            },
+          });
+          console.log('[数据库] [更新记录] 成功，记录 _id: ', res);
         },
         fail: err => {
           wx.showToast({
             icon: 'none',
-            title: '头像上传失败！'
+            title: '更新记录失败！'
           });
-          console.error('[存储] [头像] 失败：', err);
-        }
+          console.error('[数据库] [更新记录] 失败：', err);
+        },
       });
-    });
+    } else {
+      wx.showToast({
+        icon: 'none',
+        title: '删除头像失败！'
+      });
+    }
   },
 
   // 上传云数据库
@@ -240,7 +297,7 @@ Page({
           title: '新增记录失败！'
         });
         console.error('[数据库] [新增记录] 失败：', err);
-      }
+      },
     });
   },
 })

@@ -41,13 +41,12 @@ Page({
   onImgErr: function (e) {
     const index = e.currentTarget.id;
     this.setData({
-      [`testList[${index}].img`]: imgErr,
+      [`testList[${index}].imgId`]: imgErr,
     });
   },
 
   previewImage: function (e) {
     const { value } = e.currentTarget.dataset;
-    console.log(e.currentTarget, 'test123')
     wx.previewImage({
       urls: [value],
     });
@@ -89,30 +88,39 @@ Page({
   },
 
   // 删除记录
-  onDelete: function (id) {
-    const db = wx.cloud.database();
-    wx.showLoading({ title: 'loading...', duration: 30000 });
-    db.collection('testList').doc(id).remove({
-      success: (res) => {
-        wx.showToast({
-          icon: 'success',
-          title: '删除成功',
-          duration: 1000,
-          success: () => {
-            setTimeout(() => {
-              this.getTestList();
-            }, 1000);
-          },
-        });
-        console.log('[数据库] [删除记录] 成功，记录 _id: ', res);
-      },
-      fail: (err) => {
-        wx.showToast({
-          icon: 'none',
-          title: '删除记录失败！'
-        });
-        console.error('[数据库] [删除记录] 失败：', err);
-      },
-    })
+  onDelete: async function (id) {
+    const imgId = this.data.testList.find(item => item._id === id)?.imgId ?? '';
+    const deleteImgSuccess = imgId ? await app.onDeleteImg(imgId) : true;
+    if (deleteImgSuccess) {
+      const db = wx.cloud.database();
+      wx.showLoading({ title: 'loading...', duration: 30000 });
+      db.collection('testList').doc(id).remove({
+        success: (res) => {
+          wx.showToast({
+            icon: 'success',
+            title: '删除成功',
+            duration: 1000,
+            success: () => {
+              setTimeout(() => {
+                this.getTestList();
+              }, 1000);
+            },
+          });
+          console.log('[数据库] [删除记录] 成功，记录 _id: ', res);
+        },
+        fail: (err) => {
+          wx.showToast({
+            icon: 'none',
+            title: '删除记录失败！'
+          });
+          console.error('[数据库] [删除记录] 失败：', err);
+        },
+      });
+    } else {
+      wx.showToast({
+        icon: 'none',
+        title: '删除头像失败！'
+      });
+    }
   }
 });

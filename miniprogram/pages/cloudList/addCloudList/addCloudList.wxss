@@ -16,7 +16,7 @@
 }
 
 .phcolor,
-.pickerHoder,
+.picker-hoder,
 .picker .iconfont {
   color: #c8c9cc;
 }
@@ -25,9 +25,11 @@
   padding: 24rpx 36rpx;
   background-color: #fff;
   display: flex;
+  align-items: center;
 }
 
-.upload-img > view, .upload-img > image {
+.upload-img>view,
+.upload-img>image {
   display: inline-block;
   width: 150rpx;
   height: 150rpx;
@@ -38,6 +40,11 @@
 
 .upload-img .iconfont {
   font-size: 50px;
+  color: #c8c9cc;
+}
+
+.upload-hoder {
+  margin-left: 20rpx;
   color: #c8c9cc;
 }
 
