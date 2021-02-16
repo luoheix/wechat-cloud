@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/chooseLib/chooseLib",
-    "pages/calendar/calendar",
-    "pages/watermark/watermark",
-    "pages/scrollLoad/scrollLoad",
-    "pages/cloudList/cloudList",
-    "pages/cloudList/addCloudList/addCloudList"
+    "pages/chooseLib/index",
+    "pages/calendar/index",
+    "pages/watermark/index",
+    "pages/scrollLoad/index",
+    "pages/cloudList/index",
+    "pages/cloudList/addCloudList/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -14,6 +14,19 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "云开发 Demo",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "工具",
+      "iconPath": "static/images/tool.png",
+      "selectedIconPath": "static/images/tool-selected.png"
+    }, {
+      "pagePath": "pages/calendar/index",
+      "text": "简历",
+      "iconPath": "static/images/resume.png",
+      "selectedIconPath": "static/images/resume-selected.png"
+    }]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

@@ -1,4 +1,4 @@
-/* pages/addCloudList/addCloudList.wxss */
+/* pages/addCloudList/index.wxss */
 .addForm {
   display: block;
 }

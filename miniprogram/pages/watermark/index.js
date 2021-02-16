@@ -1,4 +1,4 @@
-// pages/watermark/watermark.js
+// pages/watermark/index.js
 
 // 因为安全原因 svg 需转译以便作为背景图使用，也可直接在浏览器中打开
 // 因为要保留 xvg 可读性，所以使用自定义方法进行转义

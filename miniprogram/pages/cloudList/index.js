@@ -54,7 +54,7 @@ Page({
 
   jumpAdd: function () {
     wx.navigateTo({
-      url: './addCloudList/addCloudList',
+      url: './addCloudList/index',
     });
   },
 
@@ -77,7 +77,7 @@ Page({
           });
         } else {
           wx.navigateTo({
-            url: `./addCloudList/addCloudList?id=${id}`,
+            url: `./addCloudList/index?id=${id}`,
           });
         }
       },

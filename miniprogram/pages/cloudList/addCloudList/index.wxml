@@ -1,9 +1,9 @@
-<!--pages/addCloudList/addCloudList.wxml-->
+<!--pages/addCloudList/index.wxml-->
 <form class="addForm" bindsubmit="formSubmit" bindreset="formReset">
   <view class="form-title">头像上传</view>
   <view class="upload-img" bindtap="chooseImg">
     <block wx:if="{{imgPath || testDetail.imgId}}">
-      <image src="{{imgPath || testDetail.imgId}}" binderror="onImgErr" />
+      <image src="{{imgPath || testDetail.imgId}}" binderror="onImgErr" mode="aspectFit" />
       <text class="upload-hoder">（点击重新上传）</text>
     </block>
     <view wx:else>

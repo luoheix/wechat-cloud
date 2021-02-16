@@ -1,4 +1,4 @@
-<!--pages/chooseLib/chooseLib.wxml-->
+<!--pages/chooseLib/index.wxml-->
 <view class="container">
 
   <view class="list">

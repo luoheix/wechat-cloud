@@ -1,4 +1,4 @@
-/* pages/cloudList/cloudList.wxss */
+/* pages/cloudList/index.wxss */
 .list {
   padding: 30rpx;
 }
