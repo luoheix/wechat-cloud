@@ -8,11 +8,10 @@ Page({
   },
 
   onLoad: function (options) {
-
+    this.getTestList();
   },
 
   onShow: function () {
-    this.getTestList();
   },
 
   getTestList: function () {

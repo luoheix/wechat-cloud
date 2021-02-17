@@ -3,6 +3,9 @@ const app = getApp();
 const { imgErr } = app.globalData;
 import { generateUUID } from '../../../components/utils/index.js';
 
+// 云数据库id
+const dbTestId = 'testList';
+
 Page({
   data: {
     id: '',
@@ -75,7 +78,7 @@ Page({
     const db = wx.cloud.database();
     // 查询指定 id 详情
     wx.showLoading({ title: 'loading...', duration: 30000 });
-    db.collection('testList').doc(id).get({
+    db.collection(dbTestId).doc(id).get({
       success: res => {
         wx.hideLoading();
         res?.data && this.handleDetail(res.data);
@@ -202,7 +205,6 @@ Page({
       like: likeParam,
       searchTime: `${date} ${time}:00`,
     };
-    console.log(params, 'submit');
     id ? this.editCloudList(id, params) : this.addCloudList(params);
   },
 
@@ -236,7 +238,7 @@ Page({
         title: 'loading...',
         duration: 30000
       });
-      db.collection('testList').doc(id).update({
+      db.collection(dbTestId).doc(id).update({
         // data 传入需要局部更新的数据
         data,
         success: function (res) {
@@ -275,7 +277,7 @@ Page({
       title: 'loading...',
       duration: 30000
     });
-    db.collection('testList').add({
+    db.collection(dbTestId).add({
       data,
       success: res => {
         // 在返回结果中会包含新创建的记录的 _id

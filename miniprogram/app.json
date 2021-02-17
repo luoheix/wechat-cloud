@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/resume/index",
     "pages/index/index",
     "pages/chooseLib/index",
     "pages/calendar/index",
@@ -22,8 +23,8 @@
       "iconPath": "static/images/tool.png",
       "selectedIconPath": "static/images/tool-selected.png"
     }, {
-      "pagePath": "pages/calendar/index",
-      "text": "简历",
+      "pagePath": "pages/resume/index",
+      "text": "个人简历",
       "iconPath": "static/images/resume.png",
       "selectedIconPath": "static/images/resume-selected.png"
     }]
