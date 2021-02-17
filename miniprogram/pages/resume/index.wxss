@@ -1,6 +1,6 @@
 /**resume.wxss**/
 .resume {
-  /* color: blue; */
+  padding: 10rpx;
 }
 
 .common-card {
@@ -8,8 +8,12 @@
   align-items: center;
 }
 
+.common-card:not(:first-child) {
+  margin-top: 30rpx;
+}
+
 .common-card .card-title {
-  padding: 10rpx;
+  padding: 10rpx 20rpx;
   background: #294965;
   color: #fff;
   font-size: 34rpx;
@@ -22,6 +26,7 @@
   flex: 1;
 }
 
+/* 基本信息 */
 .head-img {
   display: inline-block;
   width: 120rpx;
@@ -29,33 +34,41 @@
   border: 1px solid #294965;
 }
 
-.info-td-img {
-  text-align: center;
-}
-
 .info {
   padding: 0 20rpx;
   font-size: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.info .info-tr {
+.info .info-img {
+  justify-content: center;
+}
+
+.info .info-item {
   padding: 10rpx 0;
+}
+
+.info .info-item > view {
   display: flex;
   align-items: center;
 }
 
-.info .info-td-left {
-  width: 35%;
-  margin-right: 10rpx;
+.info .info-item:nth-of-type(odd) {
+  margin-right: 3%;
+  width: 30%;
 }
-.info .info-td-right {
-  flex: 1;
+
+.info .info-item:nth-of-type(even) {
+  width: 67%;
 }
 
 .info-label {
   padding-right: 40rpx;
   display: inline-block;
-  width: 100rpx;
+  width: 70rpx;
+  color: #666;
   text-align: justify;
   text-align-last: justify;
   position: relative;
@@ -67,4 +80,19 @@
   top: -.5px;
   right: 0;
   margin-right: 30rpx;
+}
+
+.info-value {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* 专业技能 */
+.skills {
+  padding: 10rpx;
+  font-size: 30rpx;
+}
+
+.skills .skills-item {
+  padding: 10rpx 0;
 }

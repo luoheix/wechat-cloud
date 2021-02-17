@@ -1,5 +1,5 @@
 <!--calendar.wxml-->
-<wxs src="./index.wxs" module="tools" />
+<!-- <wxs src="./index.wxs" module="tools" /> -->
 <view class="calendar">
   <view class="operat">
     <view class="pre">

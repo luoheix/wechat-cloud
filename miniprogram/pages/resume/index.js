@@ -4,11 +4,11 @@
 
 // 云数据库id
 const dbResumeId = 'luows-resume';
-const infoId = 'personal-info';
 
 Page({
   data: {
-    personalInfo: {},
+    infoData: {},
+    skillsList: [],
   },
 
   onShow: function (options) {
@@ -19,13 +19,11 @@ Page({
   getInfo: function () {
     const db = wx.cloud.database();
     wx.showLoading({ title: 'loading...', duration: 30000 });
-    db.collection(dbResumeId).doc(infoId).get({
+    db.collection(dbResumeId).get({
       success: res => {
         wx.hideLoading();
         if (res?.data) {
-          this.setData({
-            personalInfo: res.data,
-          });
+          this.changeData(res.data);
         }
         console.log('[数据库] [查询记录] 成功: ', res);
       },
@@ -36,6 +34,35 @@ Page({
         });
         console.error('[数据库] [查询记录] 失败：', err);
       }
+    });
+  },
+
+  changeData: function (data = []) {
+    let infoData = {};
+    let skillsList = [];
+    data.forEach(item => {
+      switch (item._id) {
+        case 'info':
+          infoData = item;
+          break;
+        case 'skills':
+          skillsList = item?.records || [];
+          break;
+        default:
+          break;
+      }
+    });
+
+    this.setData({
+      infoData,
+      skillsList,
+    });
+  },
+
+  previewImage: function (e) {
+    const { value } = e.currentTarget.dataset;
+    wx.previewImage({
+      urls: [value],
     });
   },
 })

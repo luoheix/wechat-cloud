@@ -1,5 +1,5 @@
 <!--scorllLoad.wxml-->
-
+<wxs src="./index.wxs" module="tools" />
 <!-- 列表模板 -->
 <template name="commonCard">
   <view class="common-card">
@@ -11,35 +11,22 @@
 <view class="resume">
   <template is="commonCard" data="{{title: '基本信息'}}" />
   <view class="info">
-    <view class="info-tr">
-      <view class="info-td-left">
-        <text class="info-label">姓名</text>
-        <text class="info-value">{{personalInfo.name}}</text>
+    <view class="info-item" wx:for="{{tools.getInfoList(infoData)}}" wx:key="key">
+      <view class="info-img" wx:if="{{item.type === 'image'}}">
+        <image class="head-img" mode="aspectFit" bindtap="previewImage" src="{{item.value}}"
+          data-value="{{item.value}}" />
       </view>
-      <view class="info-td-right info-td-img">
-        <image class="head-img" src="https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la/head-portrait.png"
-          mode="aspectFit" />
-      </view>
-    </view>
-    <view class="info-tr">
-      <view class="info-td-left">
-        <text class="info-label">性别</text>
-        <text class="info-value">{{personalInfo.sex}}</text>
-      </view>
-      <view class="info-td-right">
-        <text class="info-label">年龄</text>
-        <text class="info-value">{{personalInfo.birthday}}</text>
+      <view wx:else>
+        <text class="info-label">{{item.label}}</text>
+        <text class="info-value">{{item.value}}</text>
       </view>
     </view>
-    <view class="info-tr">
-      <view class="info-td-left">
-        <text class="info-label">籍贯</text>
-        <text class="info-value">{{personalInfo.nativePlace}}</text>
-      </view>
-      <view class="info-td-right">
-        <text class="info-label">住址</text>
-        <text class="info-value">{{personalInfo.address}}</text>
-      </view>
+  </view>
+  <template is="commonCard" data="{{title: '专业技能'}}" />
+  <view class="skills">
+    <view class="skills-item" wx:for="{{skillsList}}" wx:key="key">
+      <text>{{index + 1}}、</text>
+      <text>{{item}}</text>
     </view>
   </view>
 </view>
