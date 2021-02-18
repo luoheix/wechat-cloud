@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/resume/index",
     "pages/index/index",
+    "pages/resume/index",
     "pages/chooseLib/index",
     "pages/calendar/index",
     "pages/watermark/index",
