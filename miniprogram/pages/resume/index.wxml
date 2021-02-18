@@ -10,7 +10,7 @@
 
 <view class="resume">
   <template is="commonCard" data="{{title: '基本信息'}}" />
-  <view class="info">
+  <view class="info common-content">
     <view class="info-item" wx:for="{{tools.getInfoList(infoData)}}" wx:key="key">
       <view class="info-img" wx:if="{{item.type === 'image'}}">
         <image class="head-img" mode="aspectFit" bindtap="previewImage" src="{{item.value}}"
@@ -23,8 +23,40 @@
     </view>
   </view>
   <template is="commonCard" data="{{title: '专业技能'}}" />
-  <view class="skills">
+  <view class="skills common-content">
     <view class="skills-item" wx:for="{{skillsList}}" wx:key="key">
+      <text>{{index + 1}}、</text>
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <template is="commonCard" data="{{title: '工作经历'}}" />
+  <view class="work common-content">
+    <view class="work-item" wx:for="{{workList}}" wx:for-item="item" wx:key="key">
+      <view class="work-item-title">
+        <text>{{item.date}}</text>
+        <text>{{item.company}}</text>
+        <text>{{item.post}}</text>
+      </view>
+      <view class="work-item-content">
+        <view wx:for="{{item.functions}}" wx:for-index="idx" wx:for-item="it" wx:key="key">
+          <text>{{idx + 1}}、</text>
+          <text>{{it}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <template is="commonCard" data="{{title: '项目经历'}}" />
+  <view class="project common-content">待整理</view>
+  <template is="commonCard" data="{{title: '教育背景'}}" />
+  <view class="education common-content">
+    <text>{{educationData.date}}</text>
+    <text>{{educationData.university}}</text>
+    <text>{{educationData.major}}</text>
+    <text>{{educationData.degree}}</text>
+  </view>
+  <template is="commonCard" data="{{title: '自我评价'}}" />
+  <view class="skills common-content">
+    <view class="skills-item" wx:for="{{selfList}}" wx:key="key">
       <text>{{index + 1}}、</text>
       <text>{{item}}</text>
     </view>

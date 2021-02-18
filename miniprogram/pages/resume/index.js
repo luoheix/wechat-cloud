@@ -9,6 +9,9 @@ Page({
   data: {
     infoData: {},
     skillsList: [],
+    workList: [],
+    educationData: {},
+    selfList: [],
   },
 
   onShow: function (options) {
@@ -23,7 +26,7 @@ Page({
       success: res => {
         wx.hideLoading();
         if (res?.data) {
-          this.changeData(res.data);
+          this.saveData(res.data);
         }
         console.log('[数据库] [查询记录] 成功: ', res);
       },
@@ -37,9 +40,12 @@ Page({
     });
   },
 
-  changeData: function (data = []) {
+  saveData: function (data = []) {
     let infoData = {};
     let skillsList = [];
+    let workList = [];
+    let educationData = {};
+    let selfList = [];
     data.forEach(item => {
       switch (item._id) {
         case 'info':
@@ -47,6 +53,15 @@ Page({
           break;
         case 'skills':
           skillsList = item?.records || [];
+          break;
+        case 'work-experience':
+          workList = item?.records || [];
+          break;
+        case 'education':
+          educationData = item;
+          break;
+        case 'self-assessment':
+          selfList = item?.records || [];
           break;
         default:
           break;
@@ -56,6 +71,9 @@ Page({
     this.setData({
       infoData,
       skillsList,
+      workList,
+      educationData,
+      selfList,
     });
   },
 
