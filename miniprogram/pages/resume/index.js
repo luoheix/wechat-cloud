@@ -1,5 +1,5 @@
 //index.js
-// const app = getApp();
+const app = getApp();
 // const { imgErr } = app.globalData;
 
 // 云数据库id
@@ -12,6 +12,8 @@ Page({
     workList: [],
     educationData: {},
     selfList: [],
+    blogList: [],
+    watermarkBck: app.getWatermark({ text: '骆文帅个人简历', color: 'rgb(128,128,128,0.5)' }),
   },
 
   onShow: function (options) {
@@ -46,6 +48,7 @@ Page({
     let workList = [];
     let educationData = {};
     let selfList = [];
+    let blogList = [];
     data.forEach(item => {
       switch (item._id) {
         case 'info':
@@ -63,6 +66,9 @@ Page({
         case 'self-assessment':
           selfList = item?.records || [];
           break;
+        case 'personal-blog':
+          blogList = item?.records || [];
+          break;
         default:
           break;
       }
@@ -74,6 +80,7 @@ Page({
       workList,
       educationData,
       selfList,
+      blogList,
     });
   },
 
@@ -82,5 +89,20 @@ Page({
     wx.previewImage({
       urls: [value],
     });
+  },
+
+  // 复制
+  onCopy: function (e) {
+    const { value } = e.currentTarget.dataset;
+    wx.setClipboardData({
+      data: value,
+      // success (res) {
+      //   wx.getClipboardData({
+      //     success (res) {
+      //       console.log(res.data) // data
+      //     }
+      //   })
+      // }
+    })
   },
 })

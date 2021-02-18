@@ -16,6 +16,10 @@
 - 编辑
 - 删除
 
+#### 个人简介
+- 使用云开发存储数据和文件
+- 动态展示内容
+
 ## 体验版
 [![体验版](https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la/%E4%BD%93%E9%AA%8C%E7%89%88%E5%B0%8F%E7%A8%8B%E5%BA%8F.jpg "体验版")](https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la/%E4%BD%93%E9%AA%8C%E7%89%88%E5%B0%8F%E7%A8%8B%E5%BA%8F.jpg "体验版")
 

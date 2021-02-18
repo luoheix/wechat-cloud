@@ -124,3 +124,29 @@
   justify-content: space-between;
   font-size: 24rpx;
 }
+
+/* 社交主页 */
+.blog {
+  font-size: 24rpx;
+}
+
+.blog .blog-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  color: #007aff;
+}
+
+.blog .blog-item button {
+  font-size: 28rpx;
+  margin: 0;
+}
+
+.blog .blog-item .blog-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.blog .blog-item .blog-url {
+  margin: 0 24rpx;
+}
