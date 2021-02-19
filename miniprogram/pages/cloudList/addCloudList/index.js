@@ -1,7 +1,8 @@
 // pages/addCloudList/index.js
+import { generateUUID } from '../../../components/utils/index.js';
+
 const app = getApp();
 const { imgErr } = app.globalData;
-import { generateUUID } from '../../../components/utils/index.js';
 
 // 云数据库id
 const dbTestId = 'testList';

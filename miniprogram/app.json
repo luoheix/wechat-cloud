@@ -1,29 +1,40 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/resume/index",
     "pages/chooseLib/index",
     "pages/calendar/index",
     "pages/watermark/index",
     "pages/scrollLoad/index",
     "pages/cloudList/index",
-    "pages/cloudList/addCloudList/index"
+    "pages/cloudList/addCloudList/index",
+    "pages/jumpResume/index"
   ],
+  "subpackages": [{
+    "root": "packageA",
+    "pages": [
+      "pages/resume/index"
+    ]
+  }],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 Demo",
+    "navigationBarTitleText": "luows 个人小程序",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
     "list": [{
       "pagePath": "pages/index/index",
       "text": "工具",
       "iconPath": "static/images/tool.png",
       "selectedIconPath": "static/images/tool-selected.png"
     }, {
-      "pagePath": "pages/resume/index",
+      "pagePath": "pages/jumpResume/index",
       "text": "个人简历",
       "iconPath": "static/images/resume.png",
       "selectedIconPath": "static/images/resume-selected.png"

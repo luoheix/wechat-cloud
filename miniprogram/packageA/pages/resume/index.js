@@ -1,5 +1,7 @@
 //index.js
-const app = getApp();
+import { getWatermark } from '../../../components/utils/index.js';
+
+// const app = getApp();
 // const { imgErr } = app.globalData;
 
 // 云数据库id
@@ -13,7 +15,7 @@ Page({
     educationData: {},
     selfList: [],
     blogList: [],
-    watermarkBck: app.getWatermark({ text: '骆文帅个人简历', color: 'rgb(128,128,128,0.5)' }),
+    watermarkBck: getWatermark({ text: '骆文帅个人简历', color: 'rgb(128,128,128,0.5)' }),
   },
 
   onShow: function (options) {

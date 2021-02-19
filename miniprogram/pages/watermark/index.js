@@ -1,6 +1,8 @@
 // pages/watermark/index.js
-const app = getApp();
-const waterUrl = app.getWatermark();
+import { getWatermark } from '../../components/utils/index.js';
+
+// const app = getApp();
+const waterUrl = getWatermark();
 
 Page({
 
@@ -16,4 +18,4 @@ Page({
       watermarkBck: this.data.watermarkBck ? '' : waterUrl,
     });
   },
-})
+});
