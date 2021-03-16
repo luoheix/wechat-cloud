@@ -22,13 +22,7 @@
   <view class="dateTitle">{{dateTitle}}</view>
   <view class="table">
     <view class="header">
-      <view class="header-item">一</view>
-      <view class="header-item">二</view>
-      <view class="header-item">三</view>
-      <view class="header-item">四</view>
-      <view class="header-item">五</view>
-      <view class="header-item">六</view>
-      <view class="header-item">日</view>
+      <view class="header-item" wx:for="{{weekMapList}}" wx:key="weekNumber">{{item.weekName}}</view>
     </view>
     <view class="body">
       <view class="body-row" wx:for="{{calendarList}}" wx:key="key">
