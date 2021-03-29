@@ -45,7 +45,7 @@ const getMonthDays = (date = new Date()) => {
   // 获取当前月份
   const curMonth = targetDate.getMonth();
   // 设置当前月1日，防止下一个月没有29-31日
-  targetDate.setDate(0);
+  targetDate.setDate(1);
   // 将 targetDate 设置为下一个月
   targetDate.setMonth(curMonth + 1);
   // setDate(0) 会让 targetDate 日期变成前一个月的最后一天，也就是当前月的最后一天

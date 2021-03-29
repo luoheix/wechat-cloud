@@ -3,8 +3,8 @@ const myCloudPath = 'https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la';
 
 App({
   globalData: {
-    noImg: `${myCloudPath}/noImg.png`, // 暂无图片
-    imgErr: `${myCloudPath}/imgErr.png`, // 图片加载错误
+    noImg: `${myCloudPath}/wechat/noImg.png`, // 暂无图片
+    imgErr: `${myCloudPath}/wechat/imgErr.png`, // 图片加载错误
     myCloudPath, // 云开发存储地址
   },
 

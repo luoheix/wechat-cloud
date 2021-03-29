@@ -213,7 +213,7 @@ Page({
   onCloudImg: function (filePath) {
     return new Promise((resolve) => {
       wx.cloud.uploadFile({
-        cloudPath: `${generateUUID()}.png`, // 文件名
+        cloudPath: `wechat/${generateUUID()}.png`, // 文件名
         filePath, // 小程序临时文件路径
         success: res => {
           // 云文件地址
