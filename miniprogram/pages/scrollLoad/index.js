@@ -81,7 +81,7 @@ Page({
       this.setData({ listData: res.data });
     } else {
       wx.showToast({
-        title: res?.msg || '请求失败',
+        title: res.msg || '请求失败',
         icon: 'warn',
         duration: 1000,
       });

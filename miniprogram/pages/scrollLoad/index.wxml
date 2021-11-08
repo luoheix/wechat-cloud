@@ -21,7 +21,7 @@
   </view>
   <view class="footer" style="padding-bottom:40rpx;text-align:center">
     <view wx:if="{{!listData.records || !listData.records.length}}">暂无数据</view>
-    <view wx:elif="{{loading}}">加载中</view>
+    <view wx:elif="{{loading}}">加载中...</view>
     <view wx:elif="{{listData.current < listData.pages}}">滚到底部加载下一页</view>
     <view wx:elif="{{listData.current >= listData.pages}}">
       <button type="primary" bindtap="onReload">已加载全部</button>

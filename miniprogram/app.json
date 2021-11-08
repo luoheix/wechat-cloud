@@ -19,7 +19,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "luows 个人小程序",
+    "navigationBarTitleText": "个人小程序",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

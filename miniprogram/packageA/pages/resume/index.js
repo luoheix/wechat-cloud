@@ -29,7 +29,7 @@ Page({
     db.collection(dbResumeId).get({
       success: res => {
         wx.hideLoading();
-        if (res?.data) {
+        if (res.data) {
           this.saveData(res.data);
         }
         console.log('[数据库] [查询记录] 成功: ', res);
@@ -57,19 +57,19 @@ Page({
           infoData = item;
           break;
         case 'skills':
-          skillsList = item?.records || [];
+          skillsList = item.records || [];
           break;
         case 'work-experience':
-          workList = item?.records || [];
+          workList = item.records || [];
           break;
         case 'education':
           educationData = item;
           break;
         case 'self-assessment':
-          selfList = item?.records || [];
+          selfList = item.records || [];
           break;
         case 'personal-blog':
-          blogList = item?.records || [];
+          blogList = item.records || [];
           break;
         default:
           break;

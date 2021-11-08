@@ -88,7 +88,7 @@ Page({
 
   // 删除记录
   onDelete: async function (id) {
-    const imgId = this.data.testList.find(item => item._id === id)?.imgId ?? '';
+    const imgId = this.data.testList.find(item => item._id === id).imgId || '';
     const deleteImgSuccess = imgId ? await app.onDeleteImg(imgId) : true;
     if (deleteImgSuccess) {
       const db = wx.cloud.database();

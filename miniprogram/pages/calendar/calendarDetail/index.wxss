@@ -1,0 +1,120 @@
+/* pages/addCloudList/index.wxss */
+.addForm {
+  display: block;
+}
+
+.form-btn {
+  padding: 60rpx 36rpx 36rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addForm textarea,
+.addForm input {
+  width: 100%;
+  padding: 25rpx 0;
+}
+
+.phcolor,
+.picker-hoder,
+.picker .iconfont {
+  color: #c8c9cc;
+}
+
+.upload-img {
+  padding: 24rpx 36rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.upload-img>view,
+.upload-img>image {
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  line-height: 145rpx;
+  text-align: center;
+  border: 1px solid #c8c9cc;
+}
+
+.upload-img .iconfont {
+  font-size: 50px;
+  color: #c8c9cc;
+}
+
+.upload-hoder {
+  margin-left: 20rpx;
+  color: #c8c9cc;
+}
+
+.form-title {
+  padding: 0 36rpx;
+  height: 90rpx;
+  line-height: 106rpx;
+  color: #455a64;
+}
+
+.picker {
+  padding: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  padding: 0 36rpx;
+  background-color: #fff;
+}
+
+.form-item radio-group {
+  display: flex;
+}
+
+.label-layout {
+  padding-right: 50rpx;
+}
+
+.form-item-title {
+  width: 180rpx;
+  position: relative;
+}
+
+.required::before {
+  position: absolute;
+  color: #ff4d4f;
+  content: "*";
+  left: -10px;
+  top: 0px;
+}
+
+.form-item-content {
+  flex: 1;
+}
+
+.form-item-divider {
+  height: 1px;
+  background-color: #f3f3f3;
+  border-left: 36rpx solid #fff;
+  border-right: 36rpx solid #fff;
+}
+
+.checkbox-item {
+  background-color: #fff;
+  padding: 0 36rpx;
+}
+
+.checkbox-title {
+  padding: 21rpx 0 7rpx;
+}
+
+.checkbox-content {
+  padding-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  border-bottom: 1px solid #f3f3f3;
+}

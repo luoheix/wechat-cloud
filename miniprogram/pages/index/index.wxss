@@ -1,34 +1,80 @@
 /**index.wxss**/
 .header {
-  padding: 40rpx 0;
-  height: 200rpx;
+  padding: 25rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #40A9FF;
   background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
 }
+
 .header .iconfont {
   font-size: 60rpx;
 }
+
 .header .title {
-  margin-top: 40rpx;
+  margin-top: 20rpx;
 }
+
+.header .switch-layout {
+  position: absolute;
+  top: 15rpx;
+  right: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+/* 列表布局 */
 .navigator-item {
+  display: block;
   margin-top: 40rpx;
   line-height: 100rpx;
   background-color: #fff;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.navigator-item navigator {
   padding-left: 40rpx;
   font-size: 34rpx;
   color: #007aff;
 }
+
 .navigator-item .iconfont {
-  margin-right: 10rpx;
+  margin-right: 14rpx;
   font-size: 30rpx;
+}
+
+/* 卡片布局 */
+.navigator-card {
+  display: grid;
+  grid-gap: 45rpx;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 35rpx 45rpx 141rpx;
+}
+
+.navigator-card-item {
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0px 2rpx 12rpx 0px rgba(16, 94, 79, 0.8);
+  color: #fff;
+}
+
+.navigator-card-item .iconfont {
+  font-size: 70rpx;
+  text-align: center;
+}
+
+.navigator-card-item .card-item-title {
+  margin-top: 25rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.navigator-card-item .card-item-describe {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  word-break: break-all;
 }
