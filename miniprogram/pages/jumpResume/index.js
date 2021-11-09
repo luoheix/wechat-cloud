@@ -7,7 +7,7 @@ Page({
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
-        selected: 1
+        selected: 2
       })
     }
   },
@@ -18,7 +18,7 @@ Page({
 
   jumpResume: function () {
     wx.navigateTo({
-      url: '/packageA/pages/resume/index',
+      url: '/packageProfile/pages/home/index',
     });
   },
 })

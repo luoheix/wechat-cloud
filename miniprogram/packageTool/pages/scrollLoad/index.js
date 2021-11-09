@@ -1,5 +1,5 @@
 //index.js
-const Mock = require('../../components/utils/mock-min');
+const Mock = require('../../../components/utils/mock-min');
 
 // 获取mock列表
 const getMockList = async ({ current = 1, pageSize = 10 }) => {

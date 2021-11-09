@@ -8,35 +8,35 @@ Page({
     navigatorList: [{
       title: '日历管理',
       describe: '基于原生 Date',
-      url: '../calendar/index',
+      url: '/packageTool/pages/calendar/index',
       icon: 'icongongzuoriliguanli',
       bgColor: '#00C559',
     }, {
       title: '滚动加载',
       describe: '基于 onReachBottom',
-      url: '../scrollLoad/index',
+      url: '/packageTool/pages/scrollLoad/index',
       icon: 'icongengduo',
       bgColor: '#00B4FF',
     }, {
       title: '添加水印',
       describe: '使用 svg 标签实现',
-      url: '../watermark/index',
+      url: '/packageTool/pages/watermark/index',
       icon: 'iconshuiyin',
       bgColor: '#FE9C25',
     }, {
       title: '云开发列表',
       describe: '基于微信云开发平台',
-      url: '../cloudList/index',
+      url: '/packageTool/pages/cloudList/index',
       icon: 'iconyunkaifalogo',
       bgColor: '#FE6E25',
     }, {
       title: '视频播放',
       describe: '待实现...',
-      url: '../videoPlay/index',
+      url: '/packageTool/pages/videoPlay/index',
       icon: 'iconshipin',
       bgColor: '#626FFF',
     }],
-    layoutValue: true,
+    layoutValue: false,
   },
 
   onShow() {

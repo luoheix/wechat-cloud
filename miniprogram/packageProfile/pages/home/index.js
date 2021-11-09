@@ -1,5 +1,5 @@
 //index.js
-import { getWatermark } from '../../../components/utils/index.js';
+import { getWatermark } from '../../../components/utils/index';
 
 // const app = getApp();
 // const { imgErr } = app.globalData;
@@ -15,7 +15,7 @@ Page({
     educationData: {},
     selfList: [],
     blogList: [],
-    watermarkBck: getWatermark({ text: '骆文帅个人简历', color: 'rgb(128,128,128,0.5)' }),
+    watermarkBck: getWatermark({ text: '骆文帅个人简介', color: 'rgb(128,128,128,0.5)' }),
   },
 
   onShow: function (options) {

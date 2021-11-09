@@ -1,5 +1,5 @@
 // pages/watermark/index.js
-import { getWatermark } from '../../components/utils/index.js';
+import { getWatermark } from '../../../components/utils/index.js';
 
 // const app = getApp();
 const waterUrl = getWatermark();

@@ -1,5 +1,5 @@
 // pages/addCloudList/index.js
-import { generateUUID } from '../../../components/utils/index.js';
+import { generateUUID } from '../../../../components/utils/index';
 
 const app = getApp();
 const { imgErr } = app.globalData;
