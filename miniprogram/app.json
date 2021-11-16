@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/tool/index",
     "pages/blog/index",
+    "pages/tool/index",
     "pages/jumpResume/index"
   ],
   "subpackages": [

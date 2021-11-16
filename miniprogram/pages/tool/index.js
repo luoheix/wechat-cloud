@@ -46,12 +46,23 @@ Page({
         selected: 0
       })
     }
+
+    wx.getStorage({
+      key: 'tool-layout',
+      success: (res) => {
+        this.setData({ layoutValue: res.data === 'card' })
+      }
+    })
   },
 
   switchLayout(e) {
     this.setData({
       layoutValue: e.detail.value,
     });
+    wx.setStorage({
+      key: "tool-layout",
+      data: e.detail.value ? 'card' : 'list'
+    })
   },
 
   onLoad: function () {

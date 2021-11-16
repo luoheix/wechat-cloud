@@ -4,14 +4,8 @@
     <view class="list-item-left">
       <text wx:if="{{item.isStudent}}" class="iconfont iconxuesheng1" />
       <!-- <text wx:else class="iconfont iconlingdai" /> -->
-      <image
-        src="{{item.imgId || noImg}}"
-        id="{{index}}"
-        data-value="{{item.imgId || noImg}}"
-        binderror="onImgErr"
-        bindtap="previewImage"
-        mode="aspectFit"
-      />
+      <image src="{{item.imgId || noImg}}" id="{{index}}" data-value="{{item.imgId || noImg}}" binderror="onImgErr"
+        bindtap="previewImage" mode="aspectFit" />
     </view>
     <view class="list-item-middle">
       <view class="list-item-middle-top">
@@ -30,9 +24,9 @@
   </view>
 </template>
 
-<view class="header">
-  <button type="primary" bindtap="jumpAdd">新增数据</button>
-</view>
 <view class="list">
   <template is="listItem" data="{{ testList, noImg }}" />
+</view>
+<view class="footer" bindtap="jumpAdd">
+  +新增数据
 </view>

@@ -1,59 +1,97 @@
-/* pages/blog/index.wxss */
-page {
-  background: #f6f6f6;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.list {
-  margin-top: 40rpx;
-  height: auto;
-  width: 100%;
-  background: #fff;
-  padding: 0 40rpx;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: none;
-  border-right: none;
-  transition: all 300ms ease;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+view,
+text {
   box-sizing: border-box;
 }
 
-.list-item {
-  width: 100%;
-  padding: 0;
-  line-height: 104rpx;
-  font-size: 34rpx;
-  color: #007aff;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+.header {
+  background: url('https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la/wechat/blog-back.png') no-repeat;
+  background-size: 100%;
+  padding: 32rpx;
+}
+
+/* user */
+.user {
   display: flex;
-  flex-direction: row;
-  align-content: center;
+  align-items: center;
+}
+
+.user>image {
+  width: 112rpx;
+  height: 112rpx;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-right: 40rpx;
+}
+
+.user-info {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  box-sizing: border-box;
 }
 
-.list-item:first-child {
-  border-top: none;
+.user-info .name {
+  font-size: 40rpx;
+  color: #0d0d0d;
 }
 
-.list-item image {
-  max-width: 100%;
-  max-height: 20vh;
-  margin: 20rpx 0;
+.user-info .description {
+  margin-top: 16px;
+  font-size: 26rpx;
+  color: #8c8c8c;
 }
 
-.request-text {
-  color: #222;
-  padding: 20rpx 0;
+/* pageAddress */
+.pageAddress {
+  margin-top: 40rpx;
   font-size: 24rpx;
-  line-height: 36rpx;
-  word-break: break-all;
 }
 
-.black {
-  color: black;
+.pageAddress>text:nth-child(2) {
+  margin-left: 14rpx;
+  color: #8c8c8c;
+}
+
+/* statis */
+.statis {
+  margin-top: 40rpx;
+  display: flex;
+}
+
+.statis>view {
+  display: flex;
+  flex-direction: column;
+}
+
+.statis>view:not(:last-child) {
+  margin-right: 70rpx;
+}
+
+.statis-value {
+  color: #262626;
+  font-size: 30rpx;
+}
+
+.statis-label {
+  color: #8c8c8c;
+  font-size: 26rpx;
+}
+
+/* content */
+.content {
+  background-color: #fff;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.tabs > view {
+  padding: 32rpx 24rpx;
+  color: #8c8c8c;
+  font-size: 30rpx;
 }

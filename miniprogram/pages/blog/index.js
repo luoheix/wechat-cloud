@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tabs: [{
+      title: '精选'
+    }, {
+      title: '知识库'
+    }, {
+      title: '统计'
+    }]
   },
 
   /**
@@ -67,5 +73,20 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  // 复制
+  onCopy: function (e) {
+    const { value } = e.currentTarget.dataset;
+    wx.setClipboardData({
+      data: value,
+      // success (res) {
+      //   wx.getClipboardData({
+      //     success (res) {
+      //       console.log(res.data) // data
+      //     }
+      //   })
+      // }
+    })
+  },
 })

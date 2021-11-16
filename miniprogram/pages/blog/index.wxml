@@ -1,14 +1,36 @@
 <!--pages/blog/index.wxml-->
-<view class="container">
-
-  <view class="list">
-    <view class="list-item">
-      <text class="black">初始化失败</text>
+<view class="blog">
+  <view class="header">
+    <view class="user">
+      <image src="https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la/wechat/book-header.png" />
+      <view class="user-info">
+        <text class="name">黑熊书架</text>
+        <text class="description">敏于观察，勤于思考，善于综合，勇于创新。</text>
+      </view>
     </view>
-    <view class="list-item">
-      <text class="request-text">请使用 2.2.3 或以上的基础库以使用云能力</text>
+    <view class="pageAddress" bindtap="onCopy" data-value="https://www.yuque.com/luowenshuai">
+      <text>主页地址：https://www.yuque.com/luowenshuai</text>
+      <text>点击复制</text>
+    </view>
+    <view class="statis">
+      <view>
+        <text class="statis-value">42</text>
+        <text class="statis-label">文档总数</text>
+      </view>
+      <view>
+        <text class="statis-value">32</text>
+        <text class="statis-label">原创文档数</text>
+      </view>
+      <view>
+        <text class="statis-value">18</text>
+        <text class="statis-label">获得的赞</text>
+      </view>
     </view>
   </view>
-
+  <view class="content">
+    <view class="tabs">
+      <view wx:for="{{tabs}}" wx:key="index">
+        {{item.title}}</view>
+    </view>
+  </view>
 </view>
-
