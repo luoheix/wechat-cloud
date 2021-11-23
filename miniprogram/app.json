@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/resume/index",
     "pages/blog/index",
-    "pages/tool/index",
-    "pages/resume/index"
+    "pages/tool/index"
   ],
   "subpackages": [
     {
@@ -20,7 +20,8 @@
         "pages/scrollLoad/index",
         "pages/cloudList/index",
         "pages/cloudList/addCloudList/index",
-        "pages/videoPlay/index"
+        "pages/videoPlay/index",
+        "pages/upgrade/index"
       ]
     }
   ],

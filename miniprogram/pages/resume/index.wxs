@@ -2,7 +2,7 @@
 var getAge = function (dateStr = '') {
   var newDateStr = dateStr.replace(getRegExp('-', 'g'), '/');
   var age = getDate().getFullYear() - getDate(newDateStr).getFullYear();
-  return age;
+  return age ? (age + 1) : '';
 };
 
 // 获取 info 列表

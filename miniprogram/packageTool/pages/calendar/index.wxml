@@ -27,9 +27,9 @@
     <view class="body">
       <view class="body-row" wx:for="{{calendarList}}" wx:key="key">
         <view class="body-col" wx:for="{{item.children}}" wx:key="weekNumber" wx:for-item="it"
-          style="{{it.isTargetMonth ? 'color:rgba(0,0,0,.85);background:#fafafa' : ''}}">
+          style="{{it.isTargetMonth ? 'color:#fff;background:rgba(228, 218, 206, 0.8)' : ''}}">
           <view class="body-number"
-            style="{{it.isCurDay ? 'color:#fff;background:rgb(0, 150, 250);font-weight:bold' : ''}}">
+            style="{{it.isCurDay ? 'color:#fff;background:rgba(204, 190, 151, 1);font-weight:bold' : ''}}">
             {{it.dayNumber}}
           </view>
         </view>

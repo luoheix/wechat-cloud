@@ -37,6 +37,12 @@ Page({
       url: '/packageTool/pages/videoPlay/index',
       icon: 'iconshipin',
       bgColor: '#626FFF',
+    }, {
+      title: '即将开放',
+      describe: '待开发功能/效果',
+      url: '/packageTool/pages/upgrade/index',
+      icon: 'iconshengji',
+      bgColor: '#52c41a',
     }],
     layoutValue: false,
   },

@@ -35,13 +35,13 @@
       </view>
     </view>
     <view class="tabs-content" wx:if="{{activeKey === 0}}">
-      精选内容
+      精选内容待开放
     </view>
     <view class="tabs-content" wx:if="{{activeKey === 1}}">
-      知识库内容
+      知识库内容待开放
     </view>
     <view class="tabs-content" wx:if="{{activeKey === 2}}">
-      统计内容
+      统计内容待开放
     </view>
   </view>
 </view>

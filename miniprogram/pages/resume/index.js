@@ -9,12 +9,14 @@ const dbResumeId = 'luows-resume';
 
 Page({
   data: {
+    numList: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'],
     infoData: {},
     skillsList: [],
     workList: [],
     educationData: {},
     selfList: [],
     blogList: [],
+    projectList: [],
     watermarkBck: getWatermark({ text: '骆文帅个人简介', color: 'rgb(128,128,128,0.5)' }),
   },
 
@@ -67,6 +69,7 @@ Page({
     let educationData = {};
     let selfList = [];
     let blogList = [];
+    let projectList = [];
     data.forEach(item => {
       switch (item._id) {
         case 'info':
@@ -87,6 +90,9 @@ Page({
         case 'personal-blog':
           blogList = item.records || [];
           break;
+        case 'project':
+          projectList = item.records || [];
+          break;
         default:
           break;
       }
@@ -99,6 +105,7 @@ Page({
       educationData,
       selfList,
       blogList,
+      projectList,
     });
   },
 

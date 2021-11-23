@@ -1,0 +1,4 @@
+<!--packageTool/pages/upgrade/index.wxml-->
+<view>1、个人简介可切换为简洁版，添加浮动按钮（切换动画）</view>
+<view>2、完成博客文章模块</view>
+<view>3、工具主页添加切换动画，一个卡片一个卡片过渡动画</view>
