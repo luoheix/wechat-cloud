@@ -27,8 +27,12 @@
 }
 
 /* 列表布局 */
+.navigator {
+  padding-bottom: 100rpx;
+}
+
 .navigator-item {
-  display: block;
+  display: flex;
   margin-top: 40rpx;
   line-height: 100rpx;
   background-color: #fff;
@@ -42,6 +46,11 @@
 .navigator-item .iconfont {
   margin-right: 14rpx;
   font-size: 30rpx;
+}
+
+.navigator .item-tips {
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, .25);
 }
 
 /* 卡片布局 */

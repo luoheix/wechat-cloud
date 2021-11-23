@@ -7,11 +7,17 @@ Page({
     testList: [],
   },
 
+  refresh: false,
+
   onLoad: function (options) {
   },
 
   onShow: function () {
-    this.getTestList();
+    if (this.refresh) {
+      this.refresh = false;
+    } else {
+      this.getTestList();
+    }
   },
 
   getTestList: function () {
@@ -46,6 +52,7 @@ Page({
 
   previewImage: function (e) {
     const { value } = e.currentTarget.dataset;
+    this.refresh = true;
     wx.previewImage({
       urls: [value],
     });

@@ -3,6 +3,10 @@ text {
   box-sizing: border-box;
 }
 
+.blog {
+  padding-bottom: 110rpx;
+}
+
 .header {
   background: url('https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la/wechat/blog-back.png') no-repeat;
   background-size: 100%;
@@ -91,7 +95,23 @@ text {
 }
 
 .tabs > view {
-  padding: 32rpx 24rpx;
+  padding: 0 24rpx;
   color: #8c8c8c;
   font-size: 30rpx;
+}
+
+.tabs text {
+  display: block;
+  padding: 32rpx 0;
+  border-bottom: 4rpx solid #fff;
+}
+
+.active text {
+  color: #0d0d0d;
+  border-bottom-color: #0d0d0d;
+  font-weight: 600;
+}
+
+.tabs-content {
+  padding: 24rpx;
 }

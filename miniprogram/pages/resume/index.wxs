@@ -1,0 +1,51 @@
+// 获取年龄
+var getAge = function (dateStr = '') {
+  var newDateStr = dateStr.replace(getRegExp('-', 'g'), '/');
+  var age = getDate().getFullYear() - getDate(newDateStr).getFullYear();
+  return age;
+};
+
+// 获取 info 列表
+var getInfoList = function (data) {
+  var infoList = [
+    {
+      key: 'name',
+      label: '姓名',
+      value: data.name,
+    }, {
+      key: 'image',
+      type: 'image',
+      value: data.img,
+    }, {
+      key: 'sex',
+      label: '性别',
+      value: data.sex,
+    }, {
+      key: 'phone',
+      label: '电话',
+      value: data.phone,
+    }, {
+      key: 'birthda',
+      label: '年龄',
+      value: getAge(data.birthday),
+    }, {
+      key: 'email',
+      label: '邮箱',
+      value: data.email,
+    }, {
+      key: 'nativePlace',
+      label: '籍贯',
+      value: data.nativePlace,
+    }, {
+      key: 'address',
+      label: '住址',
+      value: data.address,
+    }
+  ];
+  return infoList;
+}
+
+module.exports = {
+  getAge: getAge,
+  getInfoList: getInfoList,
+};

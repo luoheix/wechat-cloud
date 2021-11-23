@@ -19,6 +19,7 @@ Page({
       bgColor: '#00B4FF',
     }, {
       title: '添加水印',
+      tips: '待升级为自定义',
       describe: '使用 svg 标签实现',
       url: '/packageTool/pages/watermark/index',
       icon: 'iconshuiyin',
@@ -31,6 +32,7 @@ Page({
       bgColor: '#FE6E25',
     }, {
       title: '视频播放',
+      tips: '待实现',
       describe: '待实现...',
       url: '/packageTool/pages/videoPlay/index',
       icon: 'iconshipin',

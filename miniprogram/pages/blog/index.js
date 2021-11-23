@@ -5,13 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+    info: {
+      headImg: 'https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la/wechat/book-header.png',
+      homepage: 'https://www.yuque.com/luowenshuai'
+    },
     tabs: [{
       title: '精选'
     }, {
       title: '知识库'
     }, {
       title: '统计'
-    }]
+    }],
+    activeKey: 0
   },
 
   /**
@@ -89,4 +94,20 @@ Page({
       // }
     })
   },
+
+  previewImage: function (e) {
+    const { value } = e.currentTarget.dataset;
+    wx.previewImage({
+      urls: [value],
+    });
+  },
+
+  switchTab(e) {
+    const data = e.currentTarget.dataset;
+    if (data.index !== this.data.selected) {
+      this.setData({
+        activeKey: data.index,
+      });
+    }
+  }
 })

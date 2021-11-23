@@ -2,14 +2,14 @@
 <view class="blog">
   <view class="header">
     <view class="user">
-      <image src="https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la/wechat/book-header.png" />
+      <image bindtap="previewImage" data-value="{{info.headImg}}" src="{{info.headImg}}" />
       <view class="user-info">
         <text class="name">黑熊书架</text>
         <text class="description">敏于观察，勤于思考，善于综合，勇于创新。</text>
       </view>
     </view>
-    <view class="pageAddress" bindtap="onCopy" data-value="https://www.yuque.com/luowenshuai">
-      <text>主页地址：https://www.yuque.com/luowenshuai</text>
+    <view class="pageAddress" bindtap="onCopy" data-value="{{info.homepage}}">
+      <text>主页地址：{{info.homepage}}</text>
       <text>点击复制</text>
     </view>
     <view class="statis">
@@ -29,8 +29,19 @@
   </view>
   <view class="content">
     <view class="tabs">
-      <view wx:for="{{tabs}}" wx:key="index">
-        {{item.title}}</view>
+      <view class="{{index === activeKey ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="index" data-index="{{index}}"
+        bindtap="switchTab">
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+    <view class="tabs-content" wx:if="{{activeKey === 0}}">
+      精选内容
+    </view>
+    <view class="tabs-content" wx:if="{{activeKey === 1}}">
+      知识库内容
+    </view>
+    <view class="tabs-content" wx:if="{{activeKey === 2}}">
+      统计内容
     </view>
   </view>
 </view>

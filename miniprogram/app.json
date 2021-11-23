@@ -2,7 +2,7 @@
   "pages": [
     "pages/blog/index",
     "pages/tool/index",
-    "pages/jumpResume/index"
+    "pages/resume/index"
   ],
   "subpackages": [
     {
@@ -51,7 +51,7 @@
         "selectedIconPath": "static/images/blog-selected.png"
       },
       {
-        "pagePath": "pages/jumpResume/index",
+        "pagePath": "pages/resume/index",
         "text": "个人简介",
         "iconPath": "static/images/person.png",
         "selectedIconPath": "static/images/person-selected.png"

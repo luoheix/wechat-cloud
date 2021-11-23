@@ -12,7 +12,9 @@
   <view class="navigator" wx:if="{{!layoutValue}}">
     <navigator class="navigator-item" url="{{item.url}}" wx:for="{{navigatorList}}" wx:key="title">
       <text class="{{'iconfont ' + item.icon}}" />
-      <text class="item-title">{{item.title}}</text>
+      <view class="item-title">{{item.title}}
+        <text class="item-tips" wx:if="{{item.tips}}">（{{item.tips}}）</text>
+      </view>
     </navigator>
   </view>
   <!-- 卡片布局 -->

@@ -14,7 +14,7 @@ Component({
       iconPath: "/static/images/blog.png",
       selectedIconPath: "/static/images/blog-selected.png"
     }, {
-      pagePath: "/pages/jumpResume/index",
+      pagePath: "/pages/resume/index",
       text: "个人简介",
       iconPath: "/static/images/person.png",
       selectedIconPath: "/static/images/person-selected.png"

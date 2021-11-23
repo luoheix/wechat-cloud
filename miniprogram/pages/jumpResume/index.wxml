@@ -1,9 +1,0 @@
-<!--index.wxml-->
-<view class="jumpResume">
-  <view class="info">
-    <text>使用云开发存储数据和存储，实现动态页面</text>
-    <text>使用分包加载页面</text>
-    <text>由于分包不支持默认 tabBar 和自定义 tabBar，请点击下方按钮查看</text>
-  </view>
-  <button type="primary" bindtap="jumpResume">点击查看</button>
-</view>
