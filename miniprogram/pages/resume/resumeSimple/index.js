@@ -1,5 +1,5 @@
 //index.js
-import { getWatermark } from '../../components/utils/index';
+import { getWatermark } from '../../../components/utils/index';
 
 // const app = getApp();
 // const { imgErr } = app.globalData;

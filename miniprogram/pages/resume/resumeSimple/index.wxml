@@ -110,9 +110,3 @@
     </view>
   </view>
 </view>
-<view class="layouBtnt">
-  <view></view>
-  <view></view>
-  <view><text class="iconfont iconqiehuan" />详细版</view>
-  <view></view>
-</view>
