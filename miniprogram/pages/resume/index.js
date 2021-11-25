@@ -19,6 +19,7 @@ Page({
     blogList: [],
     projectList: [],
     watermarkBck: getWatermark({ text: '骆文帅个人简介', color: 'rgb(128,128,128,0.5)' }),
+    layoutValue: false,
   },
 
   refresh: false,
@@ -29,6 +30,12 @@ Page({
     } else {
       this.init();
     }
+  },
+
+  switchLayout: function () {
+    this.setData({
+      layoutValue: !this.data.layoutValue,
+    });
   },
 
   init: function () {

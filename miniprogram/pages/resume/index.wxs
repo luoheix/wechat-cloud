@@ -6,7 +6,7 @@ var getAge = function (dateStr = '') {
 };
 
 // 获取 info 列表
-var getInfoList = function (data) {
+var getInfoList = function (data, isSimple = false) {
   var infoList = [
     {
       key: 'name',
@@ -42,7 +42,7 @@ var getInfoList = function (data) {
       value: data.address,
     }
   ];
-  return infoList;
+  return isSimple ? infoList.filter(function (item) { return item.key === 'name' || item.key === 'sex' || item.key === 'email' }) : infoList;
 }
 
 module.exports = {
