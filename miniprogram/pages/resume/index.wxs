@@ -42,7 +42,7 @@ var getInfoList = function (data, isSimple = false) {
       value: data.address,
     }
   ];
-  return isSimple ? infoList.filter(function (item) { return item.key === 'name' || item.key === 'sex' || item.key === 'email' }) : infoList;
+  return isSimple ? infoList.filter(function (item) { return item.key === 'name' || item.key === 'sex' || item.key === 'email' || item.key === 'birthda' || item.key === 'address' || item.key === 'nativePlace' }) : infoList;
 }
 
 module.exports = {

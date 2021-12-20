@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/tool/index",
     "pages/resume/index",
+    "pages/tool/index",
     "pages/blog/index"
   ],
   "subpackages": [

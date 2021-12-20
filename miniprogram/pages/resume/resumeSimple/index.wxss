@@ -1,170 +1,81 @@
-/**resume.wxss**/
-.resume {
-  padding: 10rpx 10rpx 110rpx;
+.simple {
+  padding: 30rpx 30rpx 140rpx;
   font-size: 28rpx;
 }
 
-.common-card {
-  display: flex;
-  align-items: center;
-}
-
-.common-card:not(:first-child) {
-  margin: 30rpx 0;
-}
-
-.common-card .card-title {
-  padding: 8rpx 24rpx;
-  background: #294965;
-  color: #fff;
-  font-size: 34rpx;
-  position: relative;
-  border-radius: 10rpx;
-}
-
-.common-card .card-line {
-  background: #294965;
-  height: 1px;
-  flex: 1;
-}
-
-.common-content {
-  padding: 0 10rpx;
-}
-
-/* 基本信息 */
-.head-img {
-  display: inline-block;
-  width: 120rpx;
-  height: 120rpx;
-  border: 1px solid #294965;
-}
-
-.info {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.info .info-img {
-  justify-content: center;
-}
-
-.info .info-item {
-  padding: 10rpx 0;
-}
-
-.info .info-item>view {
-  display: flex;
-  align-items: center;
-}
-
-.info .info-item:nth-of-type(odd) {
-  margin-right: 3%;
-  width: 30%;
-}
-
-.info .info-item:nth-of-type(even) {
-  width: 67%;
-}
-
-.info-label {
-  padding-right: 40rpx;
-  display: inline-block;
-  width: 70rpx;
-  color: #666;
-  text-align: justify;
-  text-align-last: justify;
-  position: relative;
-}
-
-.info-label::after {
-  content: ":";
-  position: absolute;
-  top: -.5px;
-  right: 0;
-  margin-right: 30rpx;
-}
-
-.info-value {
-  flex: 1;
-  word-break: break-word;
-}
-
-/* 专业技能 */
-.skills .skills-item {
-  padding: 10rpx 0;
-}
-
-/* 工作经历 */
-.work-item-title {
-  margin: 30rpx 0 20rpx;
-  display: flex;
-  justify-content: space-between;
+.simple-label {
   color: #999;
-  font-size: 24rpx;
 }
 
-.work-item-content>view {
+.simple-card {
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 26rpx;
+  box-shadow: 2px 2px 2px 0px rgba(184, 184, 184, 0.3);
+  border: 1px solid rgba(248, 248, 248, 0.5);
+  position: relative;
+}
+
+.simple-card:not(:first-child) {
+  margin-top: 50rpx;
+}
+
+.simple-card-title {
+  position: absolute;
+  top: -16rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(30, 164, 221, 1);
+  color: #fff;
+  font-size: 26rpx;
+  padding-left: 8rpx;
+}
+
+.simple-card-title::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid rgba(30, 164, 221, 1);
+  top: 0;
+  right: -24rpx;
+  position: absolute;
+}
+
+.education-item,
+.skills-item,
+.project-item,
+.info-item,
+.advantage-item,
+.self-item,
+.work-item {
   padding: 10rpx 0;
 }
 
-/* 项目经历 */
-.project-item:not(:last-child) {
-  margin-bottom: 50rpx;
-}
-
-.project-title {
-  font-weight: bold;
-  font-size: 26rpx;
-  display: flex;
-  justify-content: space-between;
-}
-
-.term-title {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  font-size: 24rpx;
-  border: 1px solid rgba(204, 190, 151, 100);
-  border-radius: 40rpx;
-  margin: 26rpx 0 10rpx;
-  padding: 0 10rpx;
-}
-
-.term-title .iconfont {
-  margin-right: 10rpx;
-}
-
-/* 教育背景 */
-.education {
-  display: flex;
-  justify-content: space-between;
-  font-size: 26rpx;
-}
-
-/* 社交主页 */
-.blog {
-  font-size: 26rpx;
-}
-
-.blog .blog-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20rpx;
-  color: #007aff;
-}
-
-.blog .blog-item button {
+/* .advantage-item {
   font-size: 28rpx;
-  margin: 0;
+} */
+
+.work-item:not(:first-child) {
+  margin-top: 20rpx;
 }
 
-.blog .blog-item .blog-icon {
-  width: 40rpx;
-  height: 40rpx;
+.work-item>text {
+  color: #999;
 }
 
-.blog .blog-item .blog-url {
-  margin: 0 24rpx;
+.work-item>view {
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+
+.education-item,
+.project-item {
+  display: flex;
+  justify-content: space-between;
 }

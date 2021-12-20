@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "resumeSimple": "./resumeSimple"
+  },
   "navigationBarTitleText": "个人简介"
 }

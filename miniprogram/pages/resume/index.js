@@ -1,4 +1,6 @@
 //index.js
+import { createStoreBindings } from 'mobx-miniprogram-bindings'
+import { store } from '../store/resumeStore'
 import { getWatermark } from '../../components/utils/index';
 
 // const app = getApp();
@@ -9,20 +11,23 @@ const dbResumeId = 'luows-resume';
 
 Page({
   data: {
-    numList: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'],
-    infoData: {},
-    skillsList: [],
-    advantageList: [],
-    workList: [],
-    educationData: {},
-    selfList: [],
-    blogList: [],
-    projectList: [],
     watermarkBck: getWatermark({ text: '骆文帅个人简介', color: 'rgb(128,128,128,0.5)' }),
     layoutValue: false,
   },
 
   refresh: false,
+
+  onLoad: function () {
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: ['resumeData', 'numList'],
+      actions: ['setStoreData'],
+    })
+  },
+
+  onUnload() {
+    this.storeBindings.destroyStoreBindings()
+  },
 
   onShow: function (options) {
     if (this.refresh) {
@@ -88,7 +93,9 @@ Page({
   saveData: function (data = []) {
     let infoData = {};
     let skillsList = [];
-    let advantageList = []
+    let simpleSkillsList = [];
+    let advantageList = [];
+    let simpleAdvantageList = [];
     let workList = [];
     let educationData = {};
     let selfList = [];
@@ -102,8 +109,14 @@ Page({
         case 'skills':
           skillsList = item.records || [];
           break;
+        case 'simple-skills':
+          simpleSkillsList = item.records || [];
+          break;
         case 'advantage':
           advantageList = item.records || [];
+          break;
+        case 'simple-advantage':
+          simpleAdvantageList = item.records || [];
           break;
         case 'work-experience':
           workList = item.records.reverse() || [];
@@ -125,10 +138,12 @@ Page({
       }
     });
 
-    this.setData({
+    this.setStoreData({
       infoData,
       skillsList,
+      simpleSkillsList,
       advantageList,
+      simpleAdvantageList,
       workList,
       educationData,
       selfList,
