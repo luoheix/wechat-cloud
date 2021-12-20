@@ -10,6 +10,12 @@ Page({
   refresh: false,
 
   onLoad: function (options) {
+    if (!wx.cloud) {
+      wx.redirectTo({
+        url: '../chooseLib/index',
+      })
+      return;
+    }
   },
 
   onShow: function () {

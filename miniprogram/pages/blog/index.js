@@ -1,4 +1,7 @@
 // pages/blog/index.js
+import { createStoreBindings } from 'mobx-miniprogram-bindings'
+import { store } from '../store/index'
+
 Page({
 
   /**
@@ -16,14 +19,21 @@ Page({
     }, {
       title: '统计'
     }],
-    activeKey: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: ['activeKey'],
+      actions: ['setActiveKey'],
+    })
+  },
 
+  onUnload() {
+    this.storeBindings.destroyStoreBindings()
   },
 
   /**
@@ -37,6 +47,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    console.log(this.data, 'test 123456')
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
@@ -49,13 +60,6 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
 
   },
 
@@ -103,11 +107,9 @@ Page({
   },
 
   switchTab(e) {
-    const data = e.currentTarget.dataset;
-    if (data.index !== this.data.selected) {
-      this.setData({
-        activeKey: data.index,
-      });
+    const index = e.currentTarget.dataset.index;
+    if (index !== this.data.activeKey) {
+      this.setActiveKey( index);
     }
   }
 })

@@ -1,7 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="header"
-    style="color: {{layoutValue ? '#FFF' : '#40A9FF'}};background-color: {{!layoutValue ? '#FFF' : '#40A9FF'}};">
+  <view class="header" style="color: {{layoutValue ? '#FFF' : '#40A9FF'}};background-color: {{!layoutValue ? '#FFF' : '#40A9FF'}};">
     <text class="iconfont iconxiong" />
     <text class="title">黑熊工具</text>
     <view class="switch-layout">布局：
@@ -19,8 +18,7 @@
   </view>
   <!-- 卡片布局 -->
   <view class="navigator-card" wx:if="{{layoutValue}}">
-    <navigator class="navigator-card-item" style="background-color:{{item.bgColor}}" url="{{item.url}}"
-      wx:for="{{navigatorList}}" wx:key="title">
+    <navigator class="navigator-card-item" style="background-color:{{item.bgColor}}" url="{{item.url}}" wx:for="{{navigatorList}}" wx:key="title">
       <text class="{{'iconfont ' + item.icon}}" />
       <text class="card-item-title">{{item.title}}</text>
       <text class="card-item-describe">{{item.describe}}</text>

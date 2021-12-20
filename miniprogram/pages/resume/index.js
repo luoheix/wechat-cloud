@@ -30,9 +30,24 @@ Page({
     } else {
       this.init();
     }
+    this.initLayout()
+  },
+
+  initLayout: function () {
+    wx.getStorage({
+      key: 'resume-layout',
+      success: (res) => {
+        this.setData({ layoutValue: res.data === 'simple' })
+      }
+    })
   },
 
   switchLayout: function () {
+    wx.setStorage({
+      key: "resume-layout",
+      data: this.data.layoutValue ? 'detailed' : 'simple'
+    })
+
     this.setData({
       layoutValue: !this.data.layoutValue,
     });

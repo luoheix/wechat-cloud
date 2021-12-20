@@ -1,4 +1,8 @@
 /**index.wxss**/
+.container {
+  padding-bottom: 110rpx;
+}
+
 .header {
   padding: 25rpx;
   display: flex;

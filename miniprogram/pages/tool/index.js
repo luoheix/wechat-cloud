@@ -1,8 +1,6 @@
 //index.js
 // colors: ['#00C559', '#00B4FF', '#FE9C25', '#FE6E25', '#91D064', '#626FFF']
 
-const app = getApp()
-
 Page({
   data: {
     navigatorList: [{
@@ -54,7 +52,10 @@ Page({
         selected: 0
       })
     }
+    this.initLayout();
+  },
 
+  initLayout: function () {
     wx.getStorage({
       key: 'tool-layout',
       success: (res) => {
@@ -64,21 +65,15 @@ Page({
   },
 
   switchLayout(e) {
-    this.setData({
-      layoutValue: e.detail.value,
-    });
     wx.setStorage({
       key: "tool-layout",
       data: e.detail.value ? 'card' : 'list'
     })
+    this.setData({
+      layoutValue: e.detail.value,
+    });
   },
 
   onLoad: function () {
-    if (!wx.cloud) {
-      wx.redirectTo({
-        url: '../chooseLib/index',
-      })
-      return;
-    }
   },
 });

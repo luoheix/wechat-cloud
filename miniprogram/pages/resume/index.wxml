@@ -9,12 +9,15 @@
 </template>
 
 <view style="{{'width:100%;height:100%;position:fixed;top:0;left:0;z-index: 9999;pointer-events:none;opacity:0.2;' + watermarkBck}}" />
+<!-- 简洁版 -->
 <block wx:if="{{layoutValue}}">
   <view class="simple-card simple-info">
     <view class="info-item" wx:for="{{tools.getInfoList(infoData, true)}}" wx:key="key">
       {{item.label}}：{{item.value}}</view>
   </view>
+  
 </block>
+<!-- 详细版 -->
 <block wx:if="{{!layoutValue}}">
   <view class="resume">
     <template is="commonCard" data="{{title: '基本信息'}}" />
