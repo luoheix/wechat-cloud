@@ -34,7 +34,8 @@
   <view class="simple-card project">
     <view class="simple-card-title">项目经历</view>
     <view class="project-item" wx:for="{{resumeData.projectList}}" wx:key="key">
-      {{index + 1}}. {{item.name}}<text>{{item.belong}}</text>
+      <text>{{item.name}}</text>
+      <text>{{item.belong}}</text>
     </view>
   </view>
   <view class="simple-card education">
@@ -53,6 +54,14 @@
     <view class="self-item" wx:for="{{resumeData.selfList}}" wx:key="key">
       <text>{{index + 1}}. </text>
       <text>{{item}}</text>
+    </view>
+  </view>
+  <view class="simple-card blog">
+    <view class="simple-card-title">社交主页</view>
+    <view class="blog-copy">点击复制</view>
+    <view class="blog-item" wx:for="{{resumeData.blogList}}" wx:key="key" bindtap="onCopy" data-value="{{item.url}}">
+      <image class="blog-icon" mode="aspectFit" bindtap="previewImage" src="{{item.icon}}" data-value="{{item.icon}}" />
+      <text class="blog-url">{{item.url}}</text>
     </view>
   </view>
 </view>

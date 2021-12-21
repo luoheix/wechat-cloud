@@ -11,7 +11,7 @@
 <view style="{{'width:100%;height:100%;position:fixed;top:0;left:0;z-index: 9999;pointer-events:none;opacity:0.2;' + watermarkBck}}" />
 <!-- 简洁版 -->
 <block wx:if="{{layoutValue}}">
-  <resumeSimple /> 
+  <resumeSimple />
 </block>
 <!-- 详细版 -->
 <block wx:if="{{!layoutValue}}">
@@ -109,17 +109,25 @@
     </view>
     <template is="commonCard" data="{{title: '社交主页'}}" />
     <view class="blog common-content">
-      <view class="blog-item" wx:for="{{resumeData.blogList}}" wx:key="key">
+      <view class="blog-item" wx:for="{{resumeData.blogList}}" wx:key="key" bindtap="onCopy" data-value="{{item.url}}">
         <image class="blog-icon" mode="aspectFit" bindtap="previewImage" src="{{item.icon}}" data-value="{{item.icon}}" />
         <text class="blog-url">{{item.url}}</text>
-        <button class="mini-btn" type="default" size="mini" bindtap="onCopy" data-value="{{item.url}}">复制</button>
+        <button class="mini-btn" type="default" size="mini">复制</button>
       </view>
     </view>
   </view>
 </block>
-<view class="{{layoutValue ? 'layout-btn layou-btn-move' : 'layout-btn'}}" bindtap="switchLayout">
+<!-- 切换按钮（旋转） v1.0 -->
+<!-- <view class="{{layoutValue ? 'layout-btn layout-btn-move' : 'layout-btn'}}" bindtap="switchLayout">
   <view></view>
   <view><text class="iconfont iconqiehuan" />简洁版</view>
   <view><text class="iconfont iconqiehuan" />详细版</view>
   <view><text class="iconfont iconhudu" /></view>
+</view> -->
+<!-- 切换按钮（挂旗） v2.0 -->
+<view class="{{'layout-hang hang-detailed' + (layoutValue ? ' layout-hang-move' : '')}}" bindtap="switchLayout">
+  详细版
+</view>
+<view class="{{'layout-hang hang-simple' + (!layoutValue ? ' layout-hang-move' : '')}}" bindtap="switchLayout">
+  简洁版
 </view>

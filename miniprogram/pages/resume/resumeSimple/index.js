@@ -22,5 +22,20 @@ Component({
   methods: {
     // 这里是一个自定义方法
     // customMethod: function () { }
+
+    // 复制
+    onCopy: function (e) {
+      const { value } = e.currentTarget.dataset;
+      wx.setClipboardData({
+        data: value,
+        // success (res) {
+        //   wx.getClipboardData({
+        //     success (res) {
+        //       console.log(res.data) // data
+        //     }
+        //   })
+        // }
+      })
+    },
   }
 })
