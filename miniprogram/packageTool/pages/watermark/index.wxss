@@ -1,1 +1,24 @@
 /* pages/watermark/index.wxss */
+.common-input {
+  border-top: 1px solid #D9D9D9;
+  border-bottom: 1px solid #D9D9D9;
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+
+.common-input input {
+  height: 88rpx;
+  min-height: 88rpx;
+  line-height: 88rpx;
+}
+
+.remove-btn {
+  color: #999;
+}
+
+.tips {
+  margin-top: 40rpx;
+  padding: 0 40rpx;
+  color: #999;
+  text-align: center;
+}

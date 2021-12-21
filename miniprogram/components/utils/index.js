@@ -33,15 +33,22 @@ const svgToUrl = str => {
  * <text> 属性（x y transform） 方向位置按需调整
  * <svg> 中fill属性决定字体颜色
  */
+const defaultWidth = 187.5;
+const defaultHeight = 112.5;
 const getCanvasUrl = options => {
   const {
     text = `${new Date().toLocaleDateString()} Svg水印`,
-    width = 187.5,
-    height = 112.5,
+    // width = defaultWidth,
+    // height = defaultHeight,
     fontSize = 16,
     color = 'rgb(128,128,128)',
     fontFamily = 'inherit',
   } = options || {};
+  const textLength = text.replace(/[^\x00-\xff]/g, 'xx').length * 10 / 18 + 8;
+  // const textRatio = (textLength < 10 ? 10 : textLength) / 18;
+  const textRatio = textLength / 18;
+  const width = defaultWidth * textRatio;
+  const height = defaultHeight * textRatio;
   return `<svg
     width="${width}"
     height="${height}"
@@ -51,7 +58,7 @@ const getCanvasUrl = options => {
     <text
       x="65%"
       y="55%"
-      transform="rotate(-31, 100 100)"
+      transform="rotate(-31, ${width * 100 / defaultWidth} ${height * 100 / defaultHeight})"
       font-size="${fontSize}"
       font-family="${fontFamily}"
       text-anchor="middle"

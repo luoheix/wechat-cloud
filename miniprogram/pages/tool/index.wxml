@@ -13,6 +13,7 @@
       <text class="{{'iconfont ' + item.icon}}" />
       <view class="item-title">{{item.title}}
         <text class="item-tips" wx:if="{{item.tips}}">（{{item.tips}}）</text>
+        <text class="item-new" wx:if="{{item.isNew}}">new</text>
       </view>
     </navigator>
   </view>

@@ -57,6 +57,14 @@
   color: rgba(0, 0, 0, .25);
 }
 
+.item-new {
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  padding: 0rpx 6rpx 4rpx;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: #fff;
+}
+
 /* 卡片布局 */
 .navigator-card {
   display: grid;

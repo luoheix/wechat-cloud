@@ -1,4 +1,12 @@
 <!--pages/watermark/index.wxml-->
-<view
-  style="{{'width:100%;height:100%;position:fixed;top:0;left:0;z-index: 9999;pointer-events:none;opacity:0.2;' + watermarkBck}}" />
-<button type="primary" bindtap="addWatermark" style="margin-top:40rpx">{{watermarkBck ? '点击清除水印' : '点击添加水印'}}</button>
+<view style="{{'width:100%;height:100%;position:fixed;top:0;left:0;z-index: 9999;pointer-events:none;opacity:0.2;' + watermarkBck}}" />
+<view>
+  <view class="common-input">
+    <input class="weui-input" maxlength="20" value="{{inputValue}}" bindinput="bindKeyInput" />
+  </view>
+  <button type="primary" bindtap="addWatermark" style="margin-top:40rpx">添加水印</button>
+  <button type="default" plain="true" bindtap="removeWatermark" style="margin-top:40rpx">
+    <text class="remove-btn">清除水印</text>
+  </button>
+</view>
+<view class="tips">使用 svg 标签实现页面水印，支持自定义文本、颜色、水印大小、旋转角度等</view>

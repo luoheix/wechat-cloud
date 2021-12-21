@@ -16,8 +16,8 @@ Page({
       icon: 'icongengduo',
       bgColor: '#00B4FF',
     }, {
-      title: '添加水印',
-      tips: '待升级为自定义',
+      title: '自定义水印',
+      isNew: true,
       describe: '使用 svg 标签实现',
       url: '/packageTool/pages/watermark/index',
       icon: 'iconshuiyin',

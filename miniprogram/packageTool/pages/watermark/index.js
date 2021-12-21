@@ -2,7 +2,7 @@
 import { getWatermark } from '../../../components/utils/index.js';
 
 // const app = getApp();
-const waterUrl = getWatermark();
+const defaultValue = `${new Date().toLocaleDateString()} Svg水印`
 
 Page({
 
@@ -10,12 +10,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    watermarkBck: waterUrl,
+    watermarkBck: getWatermark({ text: defaultValue }),
+    inputValue: defaultValue,
   },
 
   addWatermark: function () {
+    const value = this.data.inputValue;
     this.setData({
-      watermarkBck: this.data.watermarkBck ? '' : waterUrl,
+      watermarkBck: value ? getWatermark({ text: value }) : '',
     });
+  },
+
+  removeWatermark: function () {
+    this.setData({
+      watermarkBck: '',
+    })
+  },
+
+  bindKeyInput: function (e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
   },
 });
